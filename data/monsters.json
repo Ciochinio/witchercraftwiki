@@ -1,0 +1,199 @@
+{
+  "categories": [
+    {
+      "id": "necrophages",
+      "name": "Necrophages",
+      "description": "Creatures that feed on death and decay. Most active near graveyards, battlefields, and swamps.",
+      "monsters": [
+        {
+          "id": "drowner",
+          "name": "Drowner",
+          "status": "implemented",
+          "type": "Hostile",
+          "health": 20,
+          "attackDamage": 5,
+          "size": "Medium",
+          "drops": "---",
+          "experience": "---",
+          "entityId": "witchercraft:drowner",
+          "weakTo": "Necrophage Oil",
+          "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Drowners are amphibious necrophages that lurk near bodies of water, dragging unsuspecting travellers to watery graves. They are most commonly found near rivers, lakes, and coastal areas.",
+          "spawning": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Drowners spawn near water sources, particularly during night hours. They prefer shallow water and riverbanks where they can ambush prey.",
+          "behaviour": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Drowners are aggressive on sight and will pursue targets into water. They attack with slashing claws and can move swiftly both on land and underwater."
+        },
+        {
+          "id": "rotfiend",
+          "name": "Rotfiend",
+          "status": "implemented",
+          "type": "Hostile",
+          "health": 40,
+          "attackDamage": 4,
+          "size": "Medium",
+          "drops": "---",
+          "experience": "---",
+          "entityId": "witchercraft:rotfiend",
+          "weakTo": "Necrophage Oil",
+          "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rotfiends are bloated necrophages that feed on corpses. When killed, they release a toxic gas cloud that can devastate unprepared Witchers who close in carelessly.",
+          "spawning": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rotfiends gather near graveyards and sites of mass death. They emerge primarily at night.",
+          "behaviour": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rotfiends are slow but resilient. Upon death they explode in a toxic burst, so ranged combat or quick retreats are advised."
+        },
+        {
+          "id": "foglet",
+          "name": "Foglet",
+          "status": "implemented",
+          "type": "Hostile",
+          "health": 30,
+          "attackDamage": 5,
+          "size": "Medium",
+          "drops": "---",
+          "experience": "---",
+          "entityId": "witchercraft:foglet",
+          "weakTo": "Relict Oil",
+          "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Foglets are relicts that appear in areas of dense fog, using the mist to disorient and ambush their prey. They are patient hunters that strike when visibility is lowest.",
+          "spawning": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Foglets appear during foggy weather conditions and in swampy biomes with poor visibility.",
+          "behaviour": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Foglets teleport through fog to disorient prey and strike from unexpected angles."
+        }
+      ]
+    },
+    {
+      "id": "vampires",
+      "name": "Vampires",
+      "description": "Ancient and powerful undead creatures. Higher forms are immortal and near-impossible to kill permanently.",
+      "monsters": [
+        {
+          "id": "bruxa",
+          "name": "Bruxa",
+          "status": "implemented",
+          "type": "Hostile",
+          "health": 30,
+          "attackDamage": 7,
+          "size": "Medium",
+          "drops": "---",
+          "experience": "---",
+          "entityId": "witchercraft:bruxa",
+          "weakTo": "Vampire Oil",
+          "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. A higher vampire capable of taking human form, possessing exceptional speed and ferocity in combat. Bruxae are among the most dangerous foes a Witcher can face unprepared.",
+          "spawning": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bruxae are found in dark forests and near abandoned settlements, typically at night.",
+          "behaviour": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bruxae attack with incredible speed, emitting shrieking blasts and closing distance in an instant."
+        },
+        {
+          "id": "graveir",
+          "name": "Graveir",
+          "status": "implemented",
+          "type": "Hostile",
+          "health": 50,
+          "attackDamage": 4,
+          "size": "Large",
+          "drops": "---",
+          "experience": "---",
+          "entityId": "witchercraft:graveir",
+          "weakTo": "Vampire Oil",
+          "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Heavily armoured necrophages that scavenge battlefields and graveyards. Their thick carapace makes them resilient to physical attacks, demanding careful preparation.",
+          "spawning": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Graveirs roam battlefields and old graveyards, often found in groups with lesser vampires.",
+          "behaviour": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Graveirs are slow and heavily armoured. They use crushing blows and are resistant to most physical attacks without proper oils."
+        },
+        {
+          "id": "higher-vampire",
+          "name": "Higher Vampire",
+          "status": "implemented",
+          "type": "Hostile",
+          "health": 30,
+          "attackDamage": 5,
+          "size": "Medium",
+          "drops": "---",
+          "experience": "---",
+          "entityId": "witchercraft:higher_vampire",
+          "weakTo": "Vampire Oil",
+          "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. The most powerful class of vampire — immortal, intelligent, and virtually impossible to kill permanently. Higher Vampires can blend seamlessly into human society.",
+          "spawning": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Higher Vampires are rare and solitary. They may be encountered in any biome, often disguised.",
+          "behaviour": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Higher Vampires regenerate health rapidly and use a combination of melee attacks and special abilities to overwhelm opponents."
+        }
+      ]
+    },
+    {
+      "id": "specters",
+      "name": "Specters",
+      "description": "Spirits of the restless dead. Immune to most physical attacks without the aid of Signs or silver.",
+      "monsters": [
+        {
+          "id": "noonwraith",
+          "name": "Noonwraith",
+          "status": "planned",
+          "type": "Hostile",
+          "health": "???",
+          "attackDamage": "???",
+          "size": "Medium",
+          "drops": "---",
+          "experience": "---",
+          "entityId": "witchercraft:noonwraith",
+          "weakTo": "Specter Oil",
+          "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. A spectral apparition born from the spirit of a woman who died violently at noon. Noonwraiths appear as shimmering heat-distorted figures in open fields during midday.",
+          "spawning": "Lorem ipsum dolor sit amet — coming soon.",
+          "behaviour": "Lorem ipsum dolor sit amet — coming soon."
+        }
+      ]
+    },
+    {
+      "id": "relicts",
+      "name": "Relicts",
+      "description": "Ancient beings that predate human civilisation. Deeply tied to the natural world and highly territorial.",
+      "monsters": [
+        {
+          "id": "leshen",
+          "name": "Leshen",
+          "status": "planned",
+          "type": "Hostile",
+          "health": "???",
+          "attackDamage": "???",
+          "size": "Large",
+          "drops": "---",
+          "experience": "---",
+          "entityId": "witchercraft:leshen",
+          "weakTo": "Relict Oil",
+          "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ancient forest guardians that predate human civilization. Leshens command animals and plant life, summoning crows and roots to overwhelm intruders.",
+          "spawning": "Lorem ipsum dolor sit amet — coming soon.",
+          "behaviour": "Lorem ipsum dolor sit amet — coming soon."
+        },
+        {
+          "id": "fiend",
+          "name": "Fiend",
+          "status": "planned",
+          "type": "Hostile",
+          "health": "???",
+          "attackDamage": "???",
+          "size": "Huge",
+          "drops": "---",
+          "experience": "---",
+          "entityId": "witchercraft:fiend",
+          "weakTo": "Relict Oil",
+          "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. A massive relict resembling a giant elk with multiple eyes. Fiends possess the ability to hypnotize prey with their central eye before delivering devastating charges.",
+          "spawning": "Lorem ipsum dolor sit amet — coming soon.",
+          "behaviour": "Lorem ipsum dolor sit amet — coming soon."
+        }
+      ]
+    },
+    {
+      "id": "draconids",
+      "name": "Draconids",
+      "description": "Flying reptilian predators descended from ancient dragons. Aggressive and territorial.",
+      "monsters": [
+        {
+          "id": "cockatrice",
+          "name": "Cockatrice",
+          "status": "planned",
+          "type": "Hostile",
+          "health": "???",
+          "attackDamage": "???",
+          "size": "Large",
+          "drops": "---",
+          "experience": "---",
+          "entityId": "witchercraft:cockatrice",
+          "weakTo": "Draconid Oil",
+          "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. A winged draconid with the head of a rooster and serpentine features. Cockatrices are aggressive aerial predators that attack with beak, talons, and tail.",
+          "spawning": "Lorem ipsum dolor sit amet — coming soon.",
+          "behaviour": "Lorem ipsum dolor sit amet — coming soon."
+        }
+      ]
+    }
+  ]
+}

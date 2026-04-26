@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monsters — WitcherCraft Wiki</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="site-wrapper">
+  <header id="topbar" class="topbar"></header>
+  <div class="body-layout">
+    <aside id="sidebar" class="sidebar"></aside>
+    <main class="main-content">
+
+      <div class="page-header">
+        <h1 class="page-title">Monsters</h1>
+        <p class="page-subtitle">WitcherCraft adds many unique creatures found across the world.</p>
+      </div>
+
+      <div id="monster-index">
+        <p style="color:var(--text-faint);font-style:italic;">Loading bestiary...</p>
+      </div>
+
+    </main>
+  </div>
+  <footer id="footer" class="site-footer"></footer>
+</div>
+<script src="shared-nav.js"></script>
+<script>
+fetch('data/monsters.json')
+  .then(r => r.json())
+  .then(data => {
+    const container = document.getElementById('monster-index');
+    container.innerHTML = '';
+    data.categories.forEach(cat => {
+      const anchor = document.createElement('div');
+      anchor.id = cat.id;
+
+      const head = document.createElement('div');
+      head.className = 'section-head';
+      head.textContent = cat.name;
+
+      const desc = document.createElement('p');
+      desc.textContent = cat.description;
+
+      const grid = document.createElement('div');
+      grid.className = 'monster-grid';
+
+      cat.monsters.forEach(m => {
+        const card = document.createElement('a');
+        card.className = 'monster-card';
+        card.href = 'monsters/' + m.id + '.html';
+
+        const planned = m.status === 'planned'
+          ? '<span class="badge-planned">Planned</span>'
+          : '';
+
+        card.innerHTML = `
+          <div class="monster-card-name">${m.name}${planned}</div>
+          <div class="monster-card-sub">${cat.name} &middot; ${m.type}</div>
+        `;
+        grid.appendChild(card);
+      });
+
+      anchor.appendChild(head);
+      anchor.appendChild(desc);
+      anchor.appendChild(grid);
+      container.appendChild(anchor);
+    });
+  })
+  .catch(() => {
+    document.getElementById('monster-index').innerHTML =
+      '<p style="color:var(--red-light)">Could not load monster data.</p>';
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crafting — WitcherCraft Wiki</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="site-wrapper">
+  <header id="topbar" class="topbar"></header>
+  <div class="body-layout">
+    <aside id="sidebar" class="sidebar"></aside>
+    <main class="main-content">
+
+      <div class="page-header">
+        <h1 class="page-title">Crafting</h1>
+        <p class="page-subtitle">Recipes for every item in WitcherCraft.</p>
+      </div>
+
+      <p>Here you will find every craftable item in WitcherCraft. Items are split by type — crafting components are materials used in recipes, while alchemy ingredients are used in the Alchemy Menu.</p>
+
+      <div class="section-head">Crafting Components</div>
+      <table class="crafting-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody id="components-body"></tbody>
+      </table>
+
+      <div class="section-head">Alchemy Ingredients</div>
+      <table class="crafting-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Used In</th>
+          </tr>
+        </thead>
+        <tbody id="alchemy-body"></tbody>
+      </table>
+
+    </main>
+  </div>
+  <footer id="footer" class="site-footer"></footer>
+</div>
+<script src="shared-nav.js"></script>
+<script>
+const components = [
+  { name: 'Steel Ingot',           type: 'component', notes: 'Base crafting material' },
+  { name: 'Steel Plate',           type: 'component', notes: 'Crafting component' },
+  { name: 'Meteorite Ingot',       type: 'component', notes: 'Crafting component' },
+  { name: 'Meteorite Plate',       type: 'component', notes: 'Crafting component' },
+  { name: 'Dimeritium Ingot',      type: 'component', notes: 'Crafting component' },
+  { name: 'Dimeritium Plate',      type: 'component', notes: 'Crafting component' },
+  { name: 'Leather Straps',        type: 'component', notes: 'Crafting component' },
+  { name: 'Leather Scraps',        type: 'component', notes: 'Used to repair Witcher armor' },
+  { name: 'Cured Leather',         type: 'component', notes: 'Crafting component' },
+  { name: 'Hardened Leather',      type: 'component', notes: 'Crafting component' },
+  { name: 'Cured Draconid Leather',type: 'component', notes: 'Crafting component' },
+  { name: 'Hardened Timber',       type: 'component', notes: 'Crafting component' },
+  { name: 'Chitinous Shell',       type: 'component', notes: 'Crafting component' },
+  { name: 'Thread',                type: 'component', notes: 'Crafting component' },
+  { name: 'Linen',                 type: 'component', notes: 'Crafting component' },
+  { name: 'Silk',                  type: 'component', notes: 'Crafting component' },
+  { name: 'Wire',                  type: 'component', notes: 'Crafting component' },
+];
+
+const alchIngredients = [
+  { name: 'White Seagull', type: 'alchemy', usedIn: 'Potions, Decoctins' },
+  { name: 'Dwarven Spirit', type: 'alchemy', usedIn: 'Potions' },
+  { name: 'Temerian Rye',   type: 'alchemy', usedIn: 'Potions' },
+  { name: 'Tallow',         type: 'alchemy', usedIn: 'Oils' },
+  { name: 'Saltpeter',      type: 'alchemy', usedIn: 'Bombs' },
+  { name: 'Aether',         type: 'alchemy', usedIn: 'Potions, Decoctins' },
+  { name: 'Hydragenum',     type: 'alchemy', usedIn: 'Potions, Decoctins' },
+  { name: 'Vermilion',      type: 'alchemy', usedIn: 'Potions, Decoctins' },
+  { name: 'Rebis',          type: 'alchemy', usedIn: 'Potions, Decoctins' },
+  { name: 'Quebrith',       type: 'alchemy', usedIn: 'Potions, Decoctins' },
+  { name: 'Vitriol',        type: 'alchemy', usedIn: 'Potions, Decoctins' },
+];
+
+function makeRow(item) {
+  const badgeClass = item.type === 'alchemy' ? 'type-badge type-alchemy' : 'type-badge type-component';
+  const label = item.type === 'alchemy' ? 'Alchemy Ingredient' : 'Crafting Component';
+  const third = item.notes || item.usedIn || '---';
+  return `<tr>
+    <td>${item.name}</td>
+    <td><span class="${badgeClass}">${label}</span></td>
+    <td style="color:var(--text-faint);font-size:0.82rem;">${third}</td>
+  </tr>`;
+}
+
+document.getElementById('components-body').innerHTML = components.map(makeRow).join('');
+document.getElementById('alchemy-body').innerHTML = alchIngredients.map(makeRow).join('');
+</script>
+</body>
+</html>
