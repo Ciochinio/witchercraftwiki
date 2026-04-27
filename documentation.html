@@ -98,14 +98,14 @@
           <!-- 1. OVERVIEW -->
           <div class="doc-section" id="overview">
             <h2 class="doc-section-title">1. Overview</h2>
-            <p>Witchercraft is a Minecraft mod built on NeoForge that brings the world of CD Projekt Red's <em>The Witcher 3: Wild Hunt</em> into the Minecraft engine. The mod aims to recreate the core systems that define the Witcher experience — Signs, Alchemy, monster lore, and a deep RPG progression system — while adapting them thoughtfully to Minecraft's design language.</p>
+            <p>Witchercraft is a Minecraft mod built on NeoForge that brings the world of CD Projekt Red's <em>The Witcher 3: Wild Hunt</em> into the world of Minecraft. The mod aims to recreate the core systems that define the Witcher experience — Signs, Alchemy, monsters, and a deep RPG progression system — while adapting them thoughtfully to Minecraft's design language.</p>
             <p>Rather than simply porting assets, Witchercraft treats each system as a design problem: how do you make Witcher mechanics feel meaningful and balanced inside a sandbox game that operates by fundamentally different rules?</p>
             <div class="feature-grid">
               <div class="feature-card"><div class="feature-card-name">Signs</div><div class="feature-card-body">5 active abilities with custom particles and cooldown system</div></div>
               <div class="feature-card"><div class="feature-card-name">Alchemy</div><div class="feature-card-body">Potions, Decoctins, Oils, Bombs — governed by Toxicity</div></div>
               <div class="feature-card"><div class="feature-card-name">Skill Tree</div><div class="feature-card-body">30+ perks across Combat, Signs, Alchemy, General tabs</div></div>
-              <div class="feature-card"><div class="feature-card-name">Damage Model</div><div class="feature-card-body">Custom formula with crits, flat bonuses, life steal</div></div>
-              <div class="feature-card"><div class="feature-card-name">Armor Sets</div><div class="feature-card-body">6 Witcher school sets with custom 3D renderers</div></div>
+              <div class="feature-card"><div class="feature-card-name">Damage Model</div><div class="feature-card-body">Custom formula with crits, flat bonuses, life steal and DOTs</div></div>
+              <div class="feature-card"><div class="feature-card-name">Armor Sets</div><div class="feature-card-body">6 Witcher school sets with custom 3D models</div></div>
               <div class="feature-card"><div class="feature-card-name">Bestiary</div><div class="feature-card-body">In-game monster encyclopedia with lore entries</div></div>
             </div>
           </div>
@@ -120,15 +120,15 @@
             </div>
             <img src="assets/screenshots/sign-menu.png" alt="Sign Menu" class="img-doc">
             <p class="img-caption">Figure 2.1 — The Sign Menu, opened with the Sign Gui keybind (Tab). Click a Sign to select it, press R to cast.</p>
-            <p>Signs are the signature active abilities of Witchers. Each is mapped to a keybind and cast via the Sign Menu. Sign Intensity — a dedicated player stat — scales all Sign effects and is boosted by Griffin School Gear or Skill Tree investment. Signs share a cooldown of 45 seconds, reduced to 22.5 seconds with Griffin School Gear.</p>
+            <p>Signs are the signature active abilities of Witchers. Each can be cast with keybind. Sign Intensity — a dedicated player stat — scales all Sign effects and is boosted by Griffin School Gear or Skill Tree investment. Signs share a cooldown of 45 seconds, reduced to 22.5 seconds with Griffin School Gear.</p>
             <table class="var-table">
               <thead><tr><th>Sign</th><th>Effect</th><th>Upgrades available</th></tr></thead>
               <tbody>
                 <tr><td>Aard</td><td>Telekinetic cone blast, knocks back enemies</td><td>Direct damage, cone width, alternate radius sweep</td></tr>
                 <tr><td>Igni</td><td>Fire stream applying burn on hit</td><td>Burn duration, tick damage, area diameter</td></tr>
                 <tr><td>Quen</td><td>Absorbing shield with a distinct hold state and separate particle system</td><td>Reflect damage, increased absorption, exploding shield on expiry</td></tr>
-                <tr><td>Yrden</td><td>Magical trap slowing enemies in radius</td><td>Radius, slow potency, +5 second duration extension</td></tr>
-                <tr><td>Axii</td><td>Charm Sign manipulating enemies</td><td>Hero of the Village effect, increased area of influence</td></tr>
+                <tr><td>Yrden</td><td>Magical trap slowing enemies in radius</td><td>Radius, slow potency, extended duration</td></tr>
+                <tr><td>Axii</td><td>Charm Sign stunning enemies</td><td>Hero of the Village effect, increased area of influence</td></tr>
               </tbody>
             </table>
 
