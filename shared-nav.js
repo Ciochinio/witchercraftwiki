@@ -5,12 +5,7 @@
   const root = inMonsters ? '../' : './';
 
   function isActive(href) {
-    const full = root + href;
     return path.endsWith(href) || path.endsWith(href.replace('.html','')) ? 'active' : '';
-  }
-
-  function isMonsterActive(id) {
-    return path.includes(id) ? 'active' : '';
   }
 
   document.getElementById('topbar').innerHTML = `
@@ -19,42 +14,48 @@
       <span class="topbar-logo-text">Witcher<span>Craft</span> Wiki</span>
     </a>
     <ul class="topbar-links">
-      <li><a href="https://www.curseforge.com" target="_blank">CurseForge</a></li>
-      <li><a href="https://discord.com" target="_blank">Discord</a></li>
-      <li><a href="${root}index.html#other-mods">Other Mods</a></li>
+      <li><a href="${root}documentation.html">Docs</a></li>
+      <li><a href="https://github.com/RedBoltMedia/WitcherCraft/wiki" target="_blank">Old Wiki</a></li>
+      <li><a href="https://www.curseforge.com/minecraft/mc-mods/witchercraft" target="_blank">CurseForge</a></li>
+      <li><a href="https://discord.gg/xReJfktHS2" target="_blank">Discord</a></li>
       <li><a href="${root}index.html#contact">Contact</a></li>
     </ul>
   `;
 
   document.getElementById('sidebar').innerHTML = `
-    <div class="sidebar-section">Getting Started</div>
+    <div class="sidebar-section">Gameplay</div>
     <nav>
-      <a href="${root}index.html" class="${isActive('index.html')}">Home</a>
-      <a href="${root}getting-started.html" class="${isActive('getting-started.html')}">Introduction</a>
-      <a href="${root}signs.html" class="${isActive('signs.html')}">Signs</a>
-      <a href="${root}alchemy.html" class="${isActive('alchemy.html')}">Alchemy</a>
-      <a href="${root}witcher-gear.html" class="${isActive('witcher-gear.html')}">Witcher Gear</a>
+      <a href="${root}index.html" class="${isActive('index.html')}">🏠 Home</a>
+      <a href="${root}getting-started.html" class="${isActive('getting-started.html')}">⚔ Getting Started</a>
+      <a href="${root}signs.html" class="${isActive('signs.html')}">✦ Signs</a>
+      <a href="${root}alchemy.html" class="${isActive('alchemy.html')}">⚗ Alchemy</a>
+      <a href="${root}witcher-gear.html" class="${isActive('witcher-gear.html')}">🛡 Witcher Gear</a>
+      <a href="${root}crafting.html" class="${isActive('crafting.html')}">⚒ Crafting</a>
     </nav>
     <div class="sidebar-section">Bestiary</div>
     <nav>
-      <a href="${root}monsters.html" class="${isActive('monsters.html') || (inMonsters ? 'active' : '')}">Monsters</a>
-      <a href="${root}monsters.html#necrophages" class="sub">Necrophages</a>
-      <a href="${root}monsters.html#vampires" class="sub">Vampires</a>
-      <a href="${root}monsters.html#specters" class="sub">Specters</a>
-      <a href="${root}monsters.html#relicts" class="sub">Relicts</a>
-      <a href="${root}monsters.html#draconids" class="sub">Draconids</a>
+      <a href="${root}monsters.html" class="${isActive('monsters.html') || (inMonsters ? 'active' : '')}">☠ Monsters</a>
+      <a href="${root}monsters.html#necrophages" class="sub">· Necrophages</a>
+      <a href="${root}monsters.html#vampires" class="sub">· Vampires</a>
+      <a href="${root}monsters.html#specters" class="sub">· Specters</a>
+      <a href="${root}monsters.html#relicts" class="sub">· Relicts</a>
+      <a href="${root}monsters.html#draconids" class="sub">· Draconids</a>
     </nav>
-    <div class="sidebar-section">Items</div>
+    <div class="sidebar-section">Development</div>
     <nav>
-      <a href="${root}alchemy.html#potions" class="">Potions</a>
-      <a href="${root}alchemy.html#decoctins" class="">Decoctins</a>
-      <a href="${root}alchemy.html#oils" class="">Oils</a>
-      <a href="${root}alchemy.html#bombs" class="">Bombs</a>
-      <a href="${root}crafting.html" class="${isActive('crafting.html')}">Crafting</a>
+      <a href="${root}roadmap.html" class="${isActive('roadmap.html')}">📋 Roadmap</a>
+      <a href="${root}changelog.html" class="${isActive('changelog.html')}">📝 Changelog</a>
+    </nav>
+    <div class="sidebar-section">Links</div>
+    <nav>
+      <a href="https://discord.gg/xReJfktHS2" target="_blank">💬 Discord</a>
+      <a href="https://www.curseforge.com/minecraft/mc-mods/witchercraft" target="_blank">🔥 CurseForge</a>
+      <a href="https://modrinth.com/mod/witchercraft" target="_blank">📦 Modrinth</a>
+      <a href="https://github.com/Ciochinio" target="_blank">🐙 GitHub</a>
     </nav>
   `;
 
   document.getElementById('footer').innerHTML = `
-    <p>&copy; 2021&ndash;2025 Red Bolt Media &mdash; WitcherCraft Wiki</p>
+    <p>&copy; 2021&ndash;2026 Red Bolt Media &mdash; WitcherCraft Wiki</p>
   `;
 })();

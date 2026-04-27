@@ -6,374 +6,73 @@
   <title>Documentation — WitcherCraft</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ── Doc page layout ───────────────────────────────────────── */
-    .doc-layout {
-      display: grid;
-      grid-template-columns: 1fr 200px;
-      gap: 3rem;
-      align-items: start;
-    }
-
+    .doc-layout { display: grid; grid-template-columns: 1fr 200px; gap: 3rem; align-items: start; }
     .doc-body { min-width: 0; }
-
-    /* ── TOC ───────────────────────────────────────────────────── */
-    .toc {
-      position: sticky;
-      top: 76px;
-      background: rgba(14,14,14,0.95);
-      border: 1px solid var(--border);
-      border-top: 2px solid var(--red);
-      border-radius: 2px;
-      padding: 1rem;
-      font-family: var(--font-ui);
-    }
-
-    .toc-title {
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--red-light);
-      margin: 0 0 0.7rem;
-      padding-bottom: 0.4rem;
-      border-bottom: 1px solid var(--border-red);
-    }
-
+    .toc { position: sticky; top: 76px; background: rgba(14,14,14,0.95); border: 1px solid var(--border); border-top: 2px solid var(--red); border-radius: 2px; padding: 1rem; font-family: var(--font-ui); }
+    .toc-title { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red-light); margin: 0 0 0.7rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border-red); }
     .toc-list { list-style: none; padding: 0; margin: 0; }
-
     .toc-list li { margin-bottom: 2px; }
-
-    .toc-list a {
-      display: block;
-      font-size: 0.78rem;
-      color: var(--silver-dim);
-      padding: 3px 6px;
-      border-radius: 2px;
-      border-left: 2px solid transparent;
-      transition: all 0.15s;
-      line-height: 1.4;
-    }
-
-    .toc-list a:hover {
-      color: var(--silver);
-      background: rgba(192,192,192,0.04);
-    }
-
-    .toc-list a.active {
-      color: var(--silver);
-      border-left-color: var(--red-light);
-      background: rgba(158,26,26,0.1);
-    }
-
-    .toc-list a.sub {
-      font-size: 0.72rem;
-      padding-left: 14px;
-      color: var(--text-faint);
-    }
-
+    .toc-list a { display: block; font-size: 0.78rem; color: var(--silver-dim); padding: 3px 6px; border-radius: 2px; border-left: 2px solid transparent; transition: all 0.15s; line-height: 1.4; }
+    .toc-list a:hover { color: var(--silver); background: rgba(192,192,192,0.04); }
+    .toc-list a.active { color: var(--silver); border-left-color: var(--red-light); background: rgba(158,26,26,0.1); }
+    .toc-list a.sub { font-size: 0.72rem; padding-left: 14px; color: var(--text-faint); }
     .toc-list a.sub.active { color: var(--silver-dim); }
-
-    /* ── Section anchors ───────────────────────────────────────── */
-    .doc-section {
-      scroll-margin-top: 80px;
-      margin-bottom: 3rem;
-    }
-
-    .doc-section-title {
-      font-family: var(--font-display);
-      font-size: 1.6rem;
-      font-weight: 400;
-      color: var(--silver);
-      letter-spacing: 0.04em;
-      margin: 0 0 0.5rem;
-      padding-bottom: 0.6rem;
-      border-bottom: 1px solid var(--border-red);
-    }
-
-    .doc-sub {
-      scroll-margin-top: 80px;
-      margin: 1.8rem 0 0.8rem;
-    }
-
-    .doc-sub-title {
-      font-family: var(--font-display);
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--silver);
-      letter-spacing: 0.04em;
-      margin: 0 0 0.5rem;
-      padding-left: 0.7rem;
-      border-left: 2px solid var(--red);
-    }
-
-    .doc-sub3-title {
-      font-family: var(--font-ui);
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--red-light);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin: 1.2rem 0 0.4rem;
-    }
-
+    .doc-section { scroll-margin-top: 80px; margin-bottom: 3rem; }
+    .doc-section-title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 400; color: var(--silver); letter-spacing: 0.04em; margin: 0 0 0.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border-red); }
+    .doc-sub { scroll-margin-top: 80px; margin: 1.8rem 0 0.8rem; }
+    .doc-sub-title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: var(--silver); letter-spacing: 0.04em; margin: 0 0 0.5rem; padding-left: 0.7rem; border-left: 2px solid var(--red); }
+    .doc-sub3-title { font-family: var(--font-ui); font-size: 0.82rem; font-weight: 600; color: var(--red-light); letter-spacing: 0.08em; text-transform: uppercase; margin: 1.2rem 0 0.4rem; }
     p { color: var(--text-dim); font-size: 1rem; line-height: 1.75; margin-bottom: 0.9rem; }
-
-    /* ── Formula box ───────────────────────────────────────────── */
-    .formula-box {
-      background: rgba(6,6,6,0.95);
-      border: 1px solid var(--border-red);
-      border-left: 3px solid var(--red);
-      border-radius: 2px;
-      padding: 1rem 1.2rem;
-      margin: 1rem 0 1.2rem;
-      font-family: 'Courier New', monospace;
-      font-size: 0.88rem;
-      line-height: 1.8;
-      overflow-x: auto;
-    }
-
+    .formula-box { background: rgba(6,6,6,0.95); border: 1px solid var(--border-red); border-left: 3px solid var(--red); border-radius: 2px; padding: 1rem 1.2rem; margin: 1rem 0 1.2rem; font-family: 'Courier New', monospace; font-size: 0.88rem; line-height: 1.8; overflow-x: auto; }
     .formula-box .f-comment { color: var(--text-faint); font-style: italic; }
-    .formula-box .f-key    { color: var(--red-light); }
-    .formula-box .f-val    { color: #c0c0c0; }
-    .formula-box .f-op     { color: #888; }
-    .formula-box .f-crit   { color: #e8c96a; }
-
-    /* ── Stat / variable table ─────────────────────────────────── */
-    .var-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-family: var(--font-ui);
-      font-size: 0.85rem;
-      margin: 0.8rem 0 1.2rem;
-    }
-
-    .var-table th {
-      background: rgba(158,26,26,0.15);
-      color: var(--silver);
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.5rem 0.8rem;
-      text-align: left;
-      border-bottom: 1px solid var(--border-red);
-    }
-
-    .var-table td {
-      padding: 0.45rem 0.8rem;
-      border-bottom: 1px solid var(--border);
-      color: var(--text-dim);
-      vertical-align: top;
-    }
-
+    .formula-box .f-key { color: var(--red-light); }
+    .formula-box .f-val { color: #c0c0c0; }
+    .formula-box .f-op { color: #888; }
+    .formula-box .f-crit { color: #e8c96a; }
+    .var-table { width: 100%; border-collapse: collapse; font-family: var(--font-ui); font-size: 0.85rem; margin: 0.8rem 0 1.2rem; }
+    .var-table th { background: rgba(158,26,26,0.15); color: var(--silver); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 0.8rem; text-align: left; border-bottom: 1px solid var(--border-red); }
+    .var-table td { padding: 0.45rem 0.8rem; border-bottom: 1px solid var(--border); color: var(--text-dim); vertical-align: top; }
     .var-table tr:last-child td { border-bottom: none; }
-    .var-table td:first-child {
-      font-family: 'Courier New', monospace;
-      font-size: 0.82rem;
-      color: var(--red-light);
-      white-space: nowrap;
-      width: 200px;
-    }
-
+    .var-table td:first-child { font-family: 'Courier New', monospace; font-size: 0.82rem; color: var(--red-light); white-space: nowrap; width: 200px; }
     .var-table tr:hover td { background: rgba(192,192,192,0.02); }
-
-    /* ── Perk table ────────────────────────────────────────────── */
-    .perk-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-family: var(--font-ui);
-      font-size: 0.83rem;
-      margin: 0.5rem 0 1.2rem;
-    }
-
-    .perk-table th {
-      background: rgba(26,26,26,0.9);
-      color: var(--silver-dim);
-      font-size: 0.7rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.4rem 0.7rem;
-      text-align: left;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .perk-table td {
-      padding: 0.4rem 0.7rem;
-      border-bottom: 1px solid var(--border);
-      color: var(--text-dim);
-      vertical-align: top;
-    }
-
+    .perk-table { width: 100%; border-collapse: collapse; font-family: var(--font-ui); font-size: 0.83rem; margin: 0.5rem 0 1.2rem; }
+    .perk-table th { background: rgba(26,26,26,0.9); color: var(--silver-dim); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.4rem 0.7rem; text-align: left; border-bottom: 1px solid var(--border); }
+    .perk-table td { padding: 0.4rem 0.7rem; border-bottom: 1px solid var(--border); color: var(--text-dim); vertical-align: top; }
     .perk-table tr:last-child td { border-bottom: none; }
-    .perk-table td:first-child { color: var(--silver); font-weight: 500; width: 220px; }
+    .perk-table td:first-child { color: var(--silver); font-weight: 500; width: 180px; }
+    .perk-table td:nth-child(2) { width: 60px; }
     .perk-table tr:hover td { background: rgba(192,192,192,0.02); }
-
-    /* ── Image placeholder ─────────────────────────────────────── */
-    .img-placeholder {
-      border: 1px dashed rgba(192,192,192,0.2);
-      background: rgba(14,14,14,0.6);
-      border-radius: 2px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      margin: 1rem 0 0.4rem;
-      gap: 0.4rem;
-    }
-
-    .img-placeholder-label {
-      font-family: var(--font-ui);
-      font-size: 0.78rem;
-      color: var(--text-faint);
-      font-style: italic;
-      letter-spacing: 0.04em;
-    }
-
-    .img-placeholder-icon {
-      font-size: 1.2rem;
-      color: var(--text-faint);
-      opacity: 0.4;
-    }
-
-    .img-caption {
-      text-align: center;
-      font-family: var(--font-ui);
-      font-size: 0.75rem;
-      color: var(--text-faint);
-      font-style: italic;
-      margin: 0 0 1.2rem;
-    }
-
-    /* ── Feature cards ─────────────────────────────────────────── */
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 0.6rem;
-      margin: 0.8rem 0 1.2rem;
-    }
-
-    .feature-card {
-      background: rgba(14,14,14,0.9);
-      border: 1px solid var(--border);
-      border-top: 2px solid var(--red);
-      border-radius: 2px;
-      padding: 0.8rem 1rem;
-    }
-
-    .feature-card-name {
-      font-family: var(--font-display);
-      font-size: 0.85rem;
-      color: var(--silver);
-      margin-bottom: 0.3rem;
-    }
-
-    .feature-card-body {
-      font-family: var(--font-ui);
-      font-size: 0.78rem;
-      color: var(--text-faint);
-      line-height: 1.5;
-    }
-
-    /* ── Command table ─────────────────────────────────────────── */
-    .cmd-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-family: var(--font-ui);
-      font-size: 0.85rem;
-      margin: 0.8rem 0 1.2rem;
-    }
-
-    .cmd-table td {
-      padding: 0.5rem 0.8rem;
-      border-bottom: 1px solid var(--border);
-      vertical-align: top;
-    }
-
+    .tier-badge { display: inline-block; font-size: 0.65rem; padding: 1px 6px; border-radius: 2px; font-weight: 500; letter-spacing: 0.05em; white-space: nowrap; }
+    .tier-1 { background: rgba(255,220,80,0.12); color: #e8c96a; border: 1px solid rgba(255,220,80,0.3); }
+    .tier-2 { background: rgba(80,180,80,0.12); color: #7ec87e; border: 1px solid rgba(80,180,80,0.3); }
+    .tier-3 { background: rgba(158,26,26,0.2); color: var(--red-light); border: 1px solid var(--border-red); }
+    .img-doc { width:100%; border-radius:2px; margin:1rem 0 0.4rem; display:block; }
+    .img-caption { text-align: center; font-family: var(--font-ui); font-size: 0.75rem; color: var(--text-faint); font-style: italic; margin: 0 0 1.2rem; }
+    .img-placeholder { border: 1px dashed rgba(192,192,192,0.2); background: rgba(14,14,14,0.6); border-radius: 2px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; margin: 1rem 0 0.4rem; gap: 0.4rem; min-height: 120px; }
+    .img-placeholder-label { font-family: var(--font-ui); font-size: 0.78rem; color: var(--text-faint); font-style: italic; letter-spacing: 0.04em; }
+    .img-placeholder-icon { font-size: 1.2rem; color: var(--text-faint); opacity: 0.4; }
+    .sign-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0 1.5rem; }
+    .sign-gallery-item { }
+    .sign-gallery-label { font-family: var(--font-display); font-size: 0.8rem; color: var(--silver-dim); text-align: center; margin: 0.3rem 0 0; letter-spacing: 0.06em; }
+    .monster-media { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.6rem; margin: 0.8rem 0 1.2rem; }
+    .feature-card { background: rgba(14,14,14,0.9); border: 1px solid var(--border); border-top: 2px solid var(--red); border-radius: 2px; padding: 0.8rem 1rem; }
+    .feature-card-name { font-family: var(--font-display); font-size: 0.85rem; color: var(--silver); margin-bottom: 0.3rem; }
+    .feature-card-body { font-family: var(--font-ui); font-size: 0.78rem; color: var(--text-faint); line-height: 1.5; }
+    .cmd-table { width: 100%; border-collapse: collapse; font-family: var(--font-ui); font-size: 0.85rem; margin: 0.8rem 0 1.2rem; }
+    .cmd-table td { padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); vertical-align: top; }
     .cmd-table tr:last-child td { border-bottom: none; }
-
-    .cmd-table td:first-child {
-      font-family: 'Courier New', monospace;
-      font-size: 0.8rem;
-      color: var(--red-light);
-      white-space: nowrap;
-      background: rgba(0,0,0,0.3);
-      width: 260px;
-    }
-
+    .cmd-table td:first-child { font-family: 'Courier New', monospace; font-size: 0.8rem; color: var(--red-light); white-space: nowrap; background: rgba(0,0,0,0.3); width: 260px; }
     .cmd-table td:last-child { color: var(--text-dim); }
-    .cmd-table tr:hover td { background: rgba(192,192,192,0.02); }
-
-    /* ── Planned badge ─────────────────────────────────────────── */
-    .planned-callout {
-      background: rgba(158,26,26,0.06);
-      border: 1px solid var(--border-red);
-      border-left: 3px solid var(--red);
-      padding: 0.7rem 1rem;
-      border-radius: 2px;
-      margin: 0.8rem 0 1rem;
-      font-family: var(--font-ui);
-      font-size: 0.85rem;
-      color: var(--text-dim);
-      font-style: italic;
-    }
-
-    /* ── Bullet list ───────────────────────────────────────────── */
-    .doc-list {
-      list-style: none;
-      padding: 0;
-      margin: 0.5rem 0 1rem;
-    }
-
-    .doc-list li {
-      font-family: var(--font-body);
-      font-size: 1rem;
-      color: var(--text-dim);
-      padding: 0.25rem 0 0.25rem 1.2rem;
-      position: relative;
-      line-height: 1.6;
-    }
-
-    .doc-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.7rem;
-      width: 5px;
-      height: 1px;
-      background: var(--red);
-    }
-
-    /* ── Progress indicator ────────────────────────────────────── */
-    .progress-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 2px;
-      background: var(--red-light);
-      z-index: 200;
-      transition: width 0.1s;
-      width: 0%;
-    }
-
-    /* ── Back to top ───────────────────────────────────────────── */
-    .back-top {
-      display: inline-block;
-      margin-top: 2rem;
-      font-family: var(--font-ui);
-      font-size: 0.8rem;
-      color: var(--text-faint);
-      border: 1px solid var(--border);
-      padding: 0.4rem 1rem;
-      border-radius: 2px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
+    .planned-callout { background: rgba(158,26,26,0.06); border: 1px solid var(--border-red); border-left: 3px solid var(--red); padding: 0.7rem 1rem; border-radius: 2px; margin: 0.8rem 0 1rem; font-family: var(--font-ui); font-size: 0.85rem; color: var(--text-dim); font-style: italic; }
+    .doc-list { list-style: none; padding: 0; margin: 0.5rem 0 1rem; }
+    .doc-list li { font-family: var(--font-body); font-size: 1rem; color: var(--text-dim); padding: 0.25rem 0 0.25rem 1.2rem; position: relative; line-height: 1.6; }
+    .doc-list li::before { content: ""; position: absolute; left: 0; top: 0.7rem; width: 5px; height: 1px; background: var(--red); }
+    .progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--red-light); z-index: 200; transition: width 0.1s; width: 0%; }
+    .back-top { display: inline-block; margin-top: 2rem; font-family: var(--font-ui); font-size: 0.8rem; color: var(--text-faint); border: 1px solid var(--border); padding: 0.4rem 1rem; border-radius: 2px; cursor: pointer; transition: all 0.2s; }
     .back-top:hover { color: var(--silver); border-color: var(--border-red); }
-
-    @media (max-width: 900px) {
-      .doc-layout { grid-template-columns: 1fr; }
-      .toc { display: none; }
-    }
+    .skill-note { background: rgba(14,14,14,0.8); border: 1px solid var(--border); border-left: 3px solid #e8c96a; padding: 0.8rem 1rem; border-radius: 2px; margin: 0.8rem 0 1.2rem; font-family: var(--font-ui); font-size: 0.85rem; color: var(--text-dim); }
+    @media (max-width: 900px) { .doc-layout { grid-template-columns: 1fr; } .toc { display: none; } .sign-gallery { grid-template-columns: 1fr; } .monster-media { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -390,15 +89,13 @@
       </div>
 
       <div class="doc-layout">
-
-        <!-- ── Main doc body ──────────────────────────────────── -->
         <div class="doc-body">
 
-          <!-- 1. Overview -->
+          <!-- 1. OVERVIEW -->
           <div class="doc-section" id="overview">
             <h2 class="doc-section-title">1. Overview</h2>
             <p>Witchercraft is a Minecraft mod built on NeoForge that brings the world of CD Projekt Red's <em>The Witcher 3: Wild Hunt</em> into the Minecraft engine. The mod aims to recreate the core systems that define the Witcher experience — Signs, Alchemy, monster lore, and a deep RPG progression system — while adapting them thoughtfully to Minecraft's design language.</p>
-            <p>Rather than simply porting assets, Witchercraft treats each system as a design problem: how do you make Witcher mechanics feel meaningful and balanced inside a sandbox game that operates by fundamentally different rules? The result is a mod that respects both source materials — staying faithful to Witcher 3's feel while remaining coherent within Minecraft's world.</p>
+            <p>Rather than simply porting assets, Witchercraft treats each system as a design problem: how do you make Witcher mechanics feel meaningful and balanced inside a sandbox game that operates by fundamentally different rules?</p>
             <div class="feature-grid">
               <div class="feature-card"><div class="feature-card-name">Signs</div><div class="feature-card-body">5 active abilities with custom particles and cooldown system</div></div>
               <div class="feature-card"><div class="feature-card-name">Alchemy</div><div class="feature-card-body">Potions, Decoctins, Oils, Bombs — governed by Toxicity</div></div>
@@ -409,86 +106,255 @@
             </div>
           </div>
 
-          <!-- 2. Features -->
+          <!-- 2. FEATURES -->
           <div class="doc-section" id="features">
             <h2 class="doc-section-title">2. Features</h2>
 
+            <!-- 2.1 Signs -->
             <div class="doc-sub" id="signs">
               <h3 class="doc-sub-title">2.1 Witcher Signs</h3>
             </div>
-            <div class="img-placeholder"><div class="img-placeholder-icon">⬜</div><div class="img-placeholder-label">[ IMAGE: Sign Menu — in-game screenshot of the Sign selection GUI ]</div></div>
-            <p class="img-caption">Figure 2.1 — The Sign Menu, opened with the Sign Gui keybind.</p>
-            <p>Signs are the signature active abilities of Witchers. Each is mapped to a keybind and cast via the Sign Menu. Sign intensity — a dedicated player stat — scales all Sign effects and is boosted by Griffin School Gear or Skill Tree investment.</p>
+            <img src="assets/screenshots/sign-menu.png" alt="Sign Menu" class="img-doc">
+            <p class="img-caption">Figure 2.1 — The Sign Menu, opened with the Sign Gui keybind (Tab). Click a Sign to select it, press R to cast.</p>
+            <p>Signs are the signature active abilities of Witchers. Each is mapped to a keybind and cast via the Sign Menu. Sign Intensity — a dedicated player stat — scales all Sign effects and is boosted by Griffin School Gear or Skill Tree investment. Signs share a cooldown of 45 seconds, reduced to 22.5 seconds with Griffin School Gear.</p>
             <table class="var-table">
-              <thead><tr><th>Sign</th><th>Effect</th><th>Upgrades</th></tr></thead>
+              <thead><tr><th>Sign</th><th>Effect</th><th>Upgrades available</th></tr></thead>
               <tbody>
                 <tr><td>Aard</td><td>Telekinetic cone blast, knocks back enemies</td><td>Direct damage, cone width, alternate radius sweep</td></tr>
                 <tr><td>Igni</td><td>Fire stream applying burn on hit</td><td>Burn duration, tick damage, area diameter</td></tr>
-                <tr><td>Quen</td><td>Absorbing shield with hold state</td><td>Reflect damage, increased absorption, exploding shield</td></tr>
-                <tr><td>Yrden</td><td>Magical trap slowing enemies in radius</td><td>Radius, slow potency, duration extension</td></tr>
-                <tr><td>Axii</td><td>Charm Sign manipulating enemies</td><td>Hero of the Village effect, area influence</td></tr>
+                <tr><td>Quen</td><td>Absorbing shield with a distinct hold state and separate particle system</td><td>Reflect damage, increased absorption, exploding shield on expiry</td></tr>
+                <tr><td>Yrden</td><td>Magical trap slowing enemies in radius</td><td>Radius, slow potency, +5 second duration extension</td></tr>
+                <tr><td>Axii</td><td>Charm Sign manipulating enemies</td><td>Hero of the Village effect, increased area of influence</td></tr>
               </tbody>
             </table>
 
+            <div class="doc-sub3-title">Signs in Action</div>
+            <div class="sign-gallery">
+              <div class="sign-gallery-item">
+                <img src="assets/screenshots/sign-yrden.png" alt="Yrden" class="img-doc" style="margin:0;">
+                <p class="sign-gallery-label">Yrden</p>
+              </div>
+            </div>
+    
+            <p class="img-caption">Figures 2.2–2.6 — YRDEN Sign in action. Screenshots are works in progress and not indicative of the final product.</p>
+
+            <!-- 2.2 Alchemy -->
             <div class="doc-sub" id="alchemy">
               <h3 class="doc-sub-title">2.2 Alchemy System</h3>
             </div>
-            <div class="img-placeholder"><div class="img-placeholder-icon">⬜</div><div class="img-placeholder-label">[ IMAGE: Alchemy Menu — full GUI screenshot with slots labeled ]</div></div>
-            <p class="img-caption">Figure 2.2 — The Alchemy Menu. Slot 1 accepts the alchemy base; Slots 2–7 accept ingredients; Slot 8 shows the result.</p>
+            <img src="assets/screenshots/alchemy-menu.png" alt="Alchemy Menu" class="img-doc">
+            <p class="img-caption">Figure 2.7 — The Alchemy Menu (press B). Slot 1: alchemy base. Slots 2–7: ingredients. Slot 8: result.</p>
+            <p>The Alchemy system covers four distinct item categories. All items are craftable through the dedicated Alchemy Menu — no crafting table required, accessible anywhere in the world.</p>
 
             <div class="doc-sub3-title">Potions</div>
-            <p>Potions provide temporary buffs. Each raises Toxicity on consumption. Base ingredient: White Seagull. Full roster: Swallow, Thunderbolt, Cat, Tawny Owl, Killer Whale, Blizzard, Full Moon, Golden Oriole, Petris Philter, White Raffard's Decoction, Black Blood, White Gull, White Honey.</p>
+            <p>Potions provide temporary buffs and each raises Toxicity on consumption. Alchemy base: <strong>White Seagull</strong>.</p>
+            <table class="var-table">
+              <thead><tr><th>Potion</th><th>Effect</th></tr></thead>
+              <tbody>
+                <tr><td>Swallow</td><td>Increases passive health regeneration</td></tr>
+                <tr><td>Thunderbolt</td><td>+20% increased damage; grants 100% crit rate during thunderstorms</td></tr>
+                <tr><td>Cat</td><td>Applies glowing effect to all mobs within radius, effectively granting visibility in darkness</td></tr>
+                <tr><td>Tawny Owl</td><td>Increases passive stamina regeneration</td></tr>
+                <tr><td>Killer Whale</td><td>Grants 100% oxygen while underwater</td></tr>
+                <tr><td>Blizzard</td><td>Increases attack speed and dodge chance</td></tr>
+                <tr><td>Full Moon</td><td>Increases maximum HP</td></tr>
+                <tr><td>Golden Oriole</td><td>Clears poison effect and grants poison immunity</td></tr>
+                <tr><td>Petris Philter</td><td>Increases Sign Intensity stat</td></tr>
+                <tr><td>White Raffard's Decoction</td><td>Instantly restores 75% of maximum HP</td></tr>
+                <tr><td>Black Blood</td><td>Reflects additional 15% damage to necrophages and vampires that attack the player</td></tr>
+                <tr><td>White Honey</td><td>Clears all active WitcherCraft alchemy effects and resets Toxicity to zero</td></tr>
+              </tbody>
+            </table>
 
             <div class="doc-sub3-title">Decoctins</div>
-            <p>More powerful than potions with higher toxicity cost. Each is derived from a monster and grants abilities inspired by that creature: Ekimmara (life steal), Katakan (crit chance), Troll (out-of-combat regen), Werewolf (in-combat regen), Wyvern (attack speed), Succubus (escalating damage), Water Hag, Grave Hag, Foglet, Leshen, Nekker Warrior, Wraith.</p>
+            <p>More powerful than potions with a higher Toxicity cost per use. Each is derived from a monster and grants abilities inspired by that creature. Alchemy base: <strong>White Seagull</strong>.</p>
+            <table class="var-table">
+              <thead><tr><th>Decoctin</th><th>Effect</th></tr></thead>
+              <tbody>
+                <tr><td>Grave Hag Decoction</td><td>Increases passive HP regen with every 2 enemies killed</td></tr>
+                <tr><td>Water Hag Decoction</td><td>+40% increased damage when HP is full</td></tr>
+                <tr><td>Ekimmara Decoction</td><td>+10% life steal</td></tr>
+                <tr><td>Katakan Decoction</td><td>+10% critical hit chance</td></tr>
+                <tr><td>Leshen Decoction</td><td>Increases reflected damage</td></tr>
+                <tr><td>Foglet Decoction</td><td>Increases Sign Intensity during rain weather</td></tr>
+                <tr><td>Nekker Warrior Decoction</td><td>Increases damage while riding a horse</td></tr>
+                <tr><td>Succubus Decoction</td><td>Increases damage by X% every second while in combat (escalating)</td></tr>
+                <tr><td>Troll Decoction</td><td>Increases passive HP regeneration</td></tr>
+                <tr><td>Wraith Decoction</td><td>If more than 25% HP is lost in a single hit, automatically applies Quen</td></tr>
+                <tr><td>Werewolf Decoction</td><td>Increases passive stamina regeneration at night during clear weather</td></tr>
+                <tr><td>Wyvern Decoction</td><td>Increases damage by 1% with every hit, up to a maximum of +10%</td></tr>
+              </tbody>
+            </table>
 
             <div class="doc-sub3-title">Oils</div>
-            <p>Applied to weapons as enchantments, targeting specific enemy archetypes. Beast, Necrophage, Specter, Vampire, Insectoid, Ogroid, Draconid, Relict, Cursed, Hanged Man's Venom.</p>
+            <p>Applied to weapons as enchantments, each targeting a specific enemy archetype for bonus damage. Alchemy base: <strong>Tallow</strong>. Oil power enhanced by Viper School Gear.</p>
+            <table class="var-table">
+              <thead><tr><th>Oil</th><th>Target type</th></tr></thead>
+              <tbody>
+                <tr><td>Necrophage Oil</td><td>Necrophages (Drowner, Rotfiend, Foglet, Graveir)</td></tr>
+                <tr><td>Vampire Oil</td><td>Vampires (Bruxa, Higher Vampire)</td></tr>
+                <tr><td>Specter Oil</td><td>Specters (Noonwraith, Wraith)</td></tr>
+                <tr><td>Insectoid Oil</td><td>Insectoids</td></tr>
+                <tr><td>Ogroid Oil</td><td>Ogroids</td></tr>
+                <tr><td>Beast Oil</td><td>Beasts</td></tr>
+                <tr><td>Draconid Oil</td><td>Draconids (Cockatrice)</td></tr>
+                <tr><td>Relic Oil</td><td>Relicts (Leshen, Fiend)</td></tr>
+                <tr><td>Cursed Ones Oil</td><td>Cursed enemies</td></tr>
+                <tr><td>Hanged Man's Venom</td><td>Humans / Nonhumans</td></tr>
+              </tbody>
+            </table>
 
             <div class="doc-sub3-title">Bombs</div>
-            <div class="img-placeholder"><div class="img-placeholder-icon">⬜</div><div class="img-placeholder-label">[ IMAGE: Bomb in flight and on impact ]</div></div>
-            <p class="img-caption">Figure 2.3 — Bomb projectile entity and area effect.</p>
-            <p>Throwable projectile entities — each is its own class with unique physics and hit detection. Grapeshot, Dancing Star, Devil's Puffball, Dimeritium Bomb, Samum, Northern Wind.</p>
+            <p>Throwable projectile entities — each is its own entity class with unique physics, trajectory, and hit detection. Alchemy base: <strong>Saltpeter</strong>. Bomb power enhanced by Wolven School Gear.</p>
+            <table class="var-table">
+              <thead><tr><th>Bomb</th><th>Effect on detonation</th></tr></thead>
+              <tbody>
+                <tr><td>Devil's Puffball</td><td>Releases a lingering poison cloud</td></tr>
+                <tr><td>Dancing Star</td><td>Explodes and applies burning to nearby entities</td></tr>
+                <tr><td>Grapeshot</td><td>Deals physical fragmentation damage in an area</td></tr>
+                <tr><td>Northern Wind</td><td>Freezes nearby entities</td></tr>
+                <tr><td>Samum</td><td>Applies blind effect; blinded enemies have increased dodge chance against them</td></tr>
+                <tr><td>Dimeritium Bomb</td><td>Clears active magical effects in the area</td></tr>
+              </tbody>
+            </table>
 
+            <!-- 2.3 Armor -->
             <div class="doc-sub" id="armor">
               <h3 class="doc-sub-title">2.3 Witcher School Armor Sets</h3>
             </div>
-            <div class="img-placeholder" style="min-height: 180px;"><div class="img-placeholder-icon">⬜</div><div class="img-placeholder-label">[ IMAGE: All six Witcher School armor sets in-game ]</div></div>
-            <p class="img-caption">Figure 2.4 — All six school sets rendered in-game. Each uses a custom 3D renderer.</p>
+            <img src="assets/screenshots/armor-sets.png" alt="All six Witcher School armor sets" class="img-doc">
+            <p class="img-caption">Figure 2.8 — Wolven Armor set rendered in-game. Uses a custom 3D renderer. Visual assets are works in progress.</p>
+            <p>All six sets consist of four pieces: Gloves, Chestplate, Leggings and Boots. Wearing the full set activates the School Effect. Mixing sets is possible but the School Effect only activates with a complete matching set. Armor can be repaired with Leather Scraps.</p>
             <table class="var-table">
               <thead><tr><th>Set</th><th>School Effect</th></tr></thead>
               <tbody>
-                <tr><td>Wolven</td><td>Balanced combat and Sign bonuses</td></tr>
+                <tr><td>Wolven</td><td>Balanced combat and Sign bonuses; enhances bomb effectiveness</td></tr>
                 <tr><td>Feline</td><td>+50% critical hit damage</td></tr>
-                <tr><td>Griffin</td><td>+20% Sign intensity, reduced Sign cooldown</td></tr>
+                <tr><td>Griffin</td><td>+20% Sign Intensity; reduces Sign cooldown to 22.5 seconds</td></tr>
                 <tr><td>Ursine</td><td>+20% maximum health</td></tr>
-                <tr><td>Viper</td><td>Enhanced oil effectiveness and stealth</td></tr>
+                <tr><td>Viper</td><td>Enhanced oil effectiveness and poison mechanics</td></tr>
                 <tr><td>Manticore</td><td>Boosted potion duration and Alchemy power</td></tr>
               </tbody>
             </table>
 
+            <!-- 2.4 RPG Systems -->
             <div class="doc-sub" id="rpg">
               <h3 class="doc-sub-title">2.4 RPG Systems</h3>
             </div>
-            <div class="img-placeholder"><div class="img-placeholder-icon">⬜</div><div class="img-placeholder-label">[ IMAGE: HUD overlay showing all live player stats ]</div></div>
-            <p class="img-caption">Figure 2.5 — The custom HUD overlay. All stats update in real time.</p>
-            <p>Player stats tracked and displayed on the HUD at all times: Health, Health Regen, Stamina Regen, Attack Speed, Damage, Critical Hit Chance, Critical Hit Damage, Movement Speed, Dodge Chance, Instant Kill Chance, Toxicity, Maximum Toxicity, Sign Intensity, Potion Duration, Life Steal, Reflect Damage, Oil Damage.</p>
 
-            <div class="img-placeholder"><div class="img-placeholder-icon">⬜</div><div class="img-placeholder-label">[ IMAGE: Skill Tree — all four tabs visible ]</div></div>
-            <p class="img-caption">Figure 2.6 — The Skill Tree, split across Combat, Signs, Alchemy, and General tabs.</p>
+            <div class="doc-sub3-title">HUD Overlay</div>
+            <img src="assets/screenshots/hud.png" alt="HUD overlay" class="img-doc">
+            <p class="img-caption">Figure 2.9 — The custom HUD overlay showing all live player stats. Visible when the Dev Log command is active.</p>
+            <p>All player stats are tracked persistently and displayed on a custom HUD overlay. The overlay is accessible via the <code style="font-family:'Courier New',monospace;font-size:0.85em;color:var(--red-light);">/witchercraft devlog</code> command during development and testing. Stats displayed: Health, Health Regen, Stamina Regen, Attack Speed, Damage, Critical Hit Chance, Critical Hit Damage, Movement Speed, Dodge Chance, Instant Kill Chance, Toxicity, Maximum Toxicity, Sign Intensity, Potion Duration, Life Steal, Reflect Damage, Oil Damage.</p>
 
-            <div class="img-placeholder"><div class="img-placeholder-icon">⬜</div><div class="img-placeholder-label">[ IMAGE: Meditation screen with time-of-day options ]</div></div>
-            <p class="img-caption">Figure 2.7 — The Meditation screen. Fast-forward to Sunrise, Noon, Sunset, or Midnight.</p>
+            <div class="doc-sub3-title">Toxicity System</div>
+            <img src="assets/screenshots/toxicity-hud.png" alt="Toxicity on HUD" class="img-doc">
+            <p class="img-caption">Figure 2.10 — Medium toxicity level, above hunger bar.</p>
+            <p>The Toxicity system governs the entire Alchemy pillar and creates the central risk/reward loop around potion use. Without it, optimal play is always maximum potion stacking — trivialising the system. Toxicity forces genuine preparation decisions.</p>
+            <ul class="doc-list">
+              <li>Every potion and decoction consumed increments current Toxicity by a fixed item-specific amount.</li>
+              <li>Decoctins carry a higher Toxicity cost than standard potions, reflecting their greater power.</li>
+              <li>Toxicity decays passively over time when potions are not being consumed.</li>
+              <li>If current Toxicity exceeds Maximum Toxicity, health drains each tick until it falls back below the threshold.</li>
+              <li>White Honey immediately clears all active effects and resets Toxicity to zero — an emergency reset at the cost of losing all active buffs.</li>
+              <li>Maximum Toxicity can be raised through Acquired Tolerance upgrades in the Alchemy Skill Tree.</li>
+            </ul>
 
+            <div class="doc-sub3-title">Skill Tree & Leveling System</div>
+            <div class="skill-note">
+              <strong style="color:var(--silver);">Build decisions matter.</strong> The player earns 1 skill point per level, with a maximum level of 30 — giving a total of 30 points across all trees. With over 30 perks available across four tabs, it is impossible to unlock everything. Every point spent is a permanent commitment to a playstyle. Choose carefully.
+            </div>
+
+            <p>Perks within each tab are arranged in three tiers. Higher tiers unlock after spending a minimum number of points in that tab — 3 points to unlock Tier 2, 6 points to unlock Tier 3. This prevents immediately acquiring the most powerful upgrades and rewards sustained investment in a chosen path.</p>
+
+            <p><span class="tier-badge tier-1">Tier 1</span> — Available from the start. <span class="tier-badge tier-2">Tier 2</span> — Requires 3 points spent in the tab. <span class="tier-badge tier-3">Tier 3</span> — Requires 6 points spent in the tab.</p>
+
+            <div class="doc-sub3-title">Combat Tab</div>
+            <img src="assets/screenshots/skill-tree-combat.png" alt="Skill Tree Combat tab" class="img-doc">
+            <p class="img-caption">Figure 2.12 — Combat tab. Columns: Melee, Melee, Defence, Ranged, Battle Trance.</p>
+            <table class="perk-table">
+              <thead><tr><th>Perk</th><th>Tier</th><th>Effect</th></tr></thead>
+              <tbody>
+                <tr><td>Muscle Memory</td><td><span class="tier-badge tier-1">T1</span></td><td>+3 flat damage to all attacks</td></tr>
+                <tr><td>Strength Training</td><td><span class="tier-badge tier-1">T1</span></td><td>+10% increased damage</td></tr>
+                <tr><td>Fleet Footed</td><td><span class="tier-badge tier-1">T1</span></td><td>Increased movement speed</td></tr>
+                <tr><td>Cold Blood</td><td><span class="tier-badge tier-1">T1</span></td><td>If no enemy within 5 blocks, +5 damage</td></tr>
+                <tr><td>Flood of Anger</td><td><span class="tier-badge tier-1">T1</span></td><td>If an enemy is within 5 blocks, +5 damage</td></tr>
+                <tr><td>Precise Blows</td><td><span class="tier-badge tier-2">T2</span></td><td>+12% crit chance, +75% crit damage</td></tr>
+                <tr><td>Crushing Blows</td><td><span class="tier-badge tier-2">T2</span></td><td>+8% crit chance, +50% crit damage</td></tr>
+                <tr><td>Defence</td><td><span class="tier-badge tier-2">T2</span></td><td>+4 maximum HP</td></tr>
+                <tr><td>Anatomical Knowledge</td><td><span class="tier-badge tier-2">T2</span></td><td>If ranged weapon equipped, +10% crit rate</td></tr>
+                <tr><td>Razor Focus</td><td><span class="tier-badge tier-2">T2</span></td><td>+10% dodge chance</td></tr>
+                <tr><td>Crippling Strikes</td><td><span class="tier-badge tier-3">T3</span></td><td>Applies Bleed effect on hit</td></tr>
+                <tr><td>Sunder Armor</td><td><span class="tier-badge tier-3">T3</span></td><td>+20% increased damage</td></tr>
+                <tr><td>Deadly Precision</td><td><span class="tier-badge tier-3">T3</span></td><td>+1% instant kill chance</td></tr>
+                <tr><td>Crippling Shot</td><td><span class="tier-badge tier-3">T3</span></td><td>If ranged weapon equipped, +50% crit damage</td></tr>
+                <tr><td>Domination</td><td><span class="tier-badge tier-3">T3</span></td><td>Increases damage dealt to mobs</td></tr>
+                <tr><td>Undying</td><td><span class="tier-badge tier-3">T3</span></td><td>On death, restore HP to 50% — once per 15 minutes</td></tr>
+              </tbody>
+            </table>
+
+            <div class="doc-sub3-title">Signs Tab</div>
+            <img src="assets/screenshots/skill-tree-signs.png" alt="Skill Tree Signs tab" class="img-doc">
+            <p class="img-caption">Figure 2.13 — Signs tab. Each Sign has its own upgrade column: Aard, Igni, Yrden, Quen, Axii.</p>
+            <table class="perk-table">
+              <thead><tr><th>Perk</th><th>Tier</th><th>Effect</th></tr></thead>
+              <tbody>
+                <tr><td>Aard Intensity</td><td><span class="tier-badge tier-1">T1</span></td><td>Increases Aard knockback force</td></tr>
+                <tr><td>Igni Intensity</td><td><span class="tier-badge tier-1">T1</span></td><td>Increases Igni burning duration</td></tr>
+                <tr><td>Yrden Intensity</td><td><span class="tier-badge tier-1">T1</span></td><td>Increases Yrden slow potency</td></tr>
+                <tr><td>Quen Intensity</td><td><span class="tier-badge tier-1">T1</span></td><td>Increases Quen maximum absorption</td></tr>
+                <tr><td>Axii Intensity</td><td><span class="tier-badge tier-1">T1</span></td><td>Increases Axii Sign duration</td></tr>
+                <tr><td>Aard Sweep</td><td><span class="tier-badge tier-2">T2</span></td><td>Alternate Aard form — strikes in radius around the player</td></tr>
+                <tr><td>Firestream</td><td><span class="tier-badge tier-2">T2</span></td><td>Increases Igni area of effect diameter</td></tr>
+                <tr><td>Magic Trap</td><td><span class="tier-badge tier-2">T2</span></td><td>Alternate Yrden form</td></tr>
+                <tr><td>Exploding Shield</td><td><span class="tier-badge tier-2">T2</span></td><td>When Quen ends, deal damage to all nearby enemies</td></tr>
+                <tr><td>Delusion</td><td><span class="tier-badge tier-2">T2</span></td><td>Grants Hero of the Village effect</td></tr>
+                <tr><td>Shock Wave</td><td><span class="tier-badge tier-3">T3</span></td><td>Aard deals X direct damage on hit</td></tr>
+                <tr><td>Pyromaniac</td><td><span class="tier-badge tier-3">T3</span></td><td>Igni deals additional burning damage per tick</td></tr>
+                <tr><td>Sustained Glyphs</td><td><span class="tier-badge tier-3">T3</span></td><td>Increases Yrden duration by 5 seconds</td></tr>
+                <tr><td>Quen Discharge</td><td><span class="tier-badge tier-3">T3</span></td><td>Deals absorbed damage back to the attacker</td></tr>
+                <tr><td>Domination</td><td><span class="tier-badge tier-3">T3</span></td><td>Increases damage dealt to mobs affected by Axii</td></tr>
+              </tbody>
+            </table>
+
+            <div class="doc-sub3-title">Alchemy Tab</div>
+            <img src="assets/screenshots/skill-tree-alchemy.png" alt="Skill Tree Alchemy tab" class="img-doc">
+            <p class="img-caption">Figure 2.14 — Alchemy tab. Columns: Brewing, Oil Preparation, Bomb Creation, Mutation, Trial of Grasses.</p>
+            <table class="perk-table">
+              <thead><tr><th>Perk</th><th>Tier</th><th>Effect</th></tr></thead>
+              <tbody>
+                <tr><td>Refreshment</td><td><span class="tier-badge tier-1">T1</span></td><td>Each potion heals 10% of max HP on consumption</td></tr>
+                <tr><td>Poisoned Blades</td><td><span class="tier-badge tier-1">T1</span></td><td>Oils give a 5% chance to poison on hit</td></tr>
+                <tr><td>Pyrotechnics</td><td><span class="tier-badge tier-1">T1</span></td><td>Bombs deal additional damage</td></tr>
+                <tr><td>Acquired Tolerance 1</td><td><span class="tier-badge tier-1">T1</span></td><td>Increases Maximum Toxicity</td></tr>
+                <tr><td>Endure Pain</td><td><span class="tier-badge tier-1">T1</span></td><td>Increases max HP by X when Toxicity is above threshold</td></tr>
+                <tr><td>Delayed Recovery</td><td><span class="tier-badge tier-2">T2</span></td><td>If Toxicity above 80%, reactivates the Elixir effect</td></tr>
+                <tr><td>Protective Coating</td><td><span class="tier-badge tier-2">T2</span></td><td>Reduces damage taken from the mob type targeted by the equipped oil</td></tr>
+                <tr><td>Efficiency</td><td><span class="tier-badge tier-2">T2</span></td><td>Bombs have a chance to remain in inventory after use</td></tr>
+                <tr><td>Acquired Tolerance 2</td><td><span class="tier-badge tier-2">T2</span></td><td>Further increases Maximum Toxicity</td></tr>
+                <tr><td>Fast Metabolism</td><td><span class="tier-badge tier-2">T2</span></td><td>Toxicity drops X points faster per second</td></tr>
+                <tr><td>Side Effects</td><td><span class="tier-badge tier-3">T3</span></td><td>33% chance to activate a random secondary potion effect on consumption</td></tr>
+                <tr><td>Hunter Instinct</td><td><span class="tier-badge tier-3">T3</span></td><td>Additional damage to the mob type targeted by the equipped oil</td></tr>
+                <tr><td>Cluster Bombs</td><td><span class="tier-badge tier-3">T3</span></td><td>Bombs have increased area of effect</td></tr>
+                <tr><td>Acquired Tolerance 3</td><td><span class="tier-badge tier-3">T3</span></td><td>Maximum Toxicity increase — unlocks full alchemist potential</td></tr>
+                <tr><td>Killing Spree</td><td><span class="tier-badge tier-3">T3</span></td><td>When Toxicity is above 0, increases crit chance for X seconds (stackable)</td></tr>
+              </tbody>
+            </table>
+
+            <div class="doc-sub3-title">Meditation System</div>
+            <p>Accessible from the Pause Menu. Allows the player to fast-travel to a specific time of day, enabling passive health and stamina regeneration tied to the chosen time.</p>
+
+            <!-- 2.5 Bestiary -->
             <div class="doc-sub" id="bestiary-section">
               <h3 class="doc-sub-title">2.5 Bestiary & Glossary</h3>
             </div>
-            <div class="img-placeholder"><div class="img-placeholder-icon">⬜</div><div class="img-placeholder-label">[ IMAGE: Bestiary GUI showing a monster entry ]</div></div>
-            <p class="img-caption">Figure 2.8 — The in-game Bestiary with monster lore, type, health and attack data.</p>
+            <img src="assets/screenshots/bestiary.png" alt="Bestiary GUI" class="img-doc">
+            <p class="img-caption">Figure 2.16 — The in-game Bestiary with monster lore, type, health and attack data.</p>
             <p>In-game encyclopedia with entries for Drowner, Foglet, Graveir, Bruxa, Higher Vampire, and Rotfiend. The Glossary provides lore and terminology references for the Witcher universe.</p>
           </div>
 
-          <!-- 3. Monsters -->
+          <!-- 3. MONSTERS -->
           <div class="doc-section" id="monsters-doc">
             <h2 class="doc-section-title">3. Monsters & Mobs</h2>
 
@@ -510,21 +376,37 @@
             <div class="doc-sub" id="planned-monsters">
               <h3 class="doc-sub-title">3.2 Models Ready — Entities In Development</h3>
             </div>
-            <div class="planned-callout">The following monsters have completed 3D models ready for integration. Entity implementation, AI behavior, and spawning logic are currently in development.</div>
-            <div class="img-placeholder"><div class="img-placeholder-icon">⬜</div><div class="img-placeholder-label">[ IMAGE: Monster model renders — Noonwraith, Fiend, Leshen, Cockatrice ]</div></div>
-            <p class="img-caption">Figure 3.1 — 3D model renders of planned monsters.</p>
-            <table class="var-table">
-              <thead><tr><th>Monster</th><th>Type</th><th>Status</th></tr></thead>
-              <tbody>
-                <tr><td>Noonwraith</td><td>Specter</td><td>Model complete, entity pending</td></tr>
-                <tr><td>Fiend</td><td>Relict</td><td>Model complete, entity pending</td></tr>
-                <tr><td>Leshen</td><td>Relict</td><td>Model complete, entity pending</td></tr>
-                <tr><td>Cockatrice</td><td>Draconid</td><td>Model complete, entity pending</td></tr>
-              </tbody>
-            </table>
+            <div class="planned-callout">The following monsters have completed 3D models ready for integration. Entity implementation, AI behavior, and spawning logic are currently in development. All previews are works in progress and not indicative of the final product.</div>
+
+            <div class="doc-sub3-title">Noonwraith</div>
+            <div class="monster-media">
+              <img src="assets/screenshots/monster-noonwraith-1.png" alt="Noonwraith model" class="img-doc" style="margin:0;">
+            </div>
+            <p>A spectral apparition born from the spirit of a woman who died violently at noon. Appears as a shimmering heat-distorted figure in open fields during midday. <strong>Type:</strong> Specter | <strong>Weakness:</strong> Specter Oil</p>
+
+            <div class="doc-sub3-title">Fiend</div>
+            <div class="monster-media">
+              <img src="assets/screenshots/monster-fiend-1.gif" alt="Fiend model" class="img-doc" style="margin:0;">
+              <img src="assets/screenshots/monster-fiend-2.gif" alt="Fiend in-game" class="img-doc" style="margin:0;">
+            </div>
+            <p>A massive relict resembling a giant elk with multiple eyes, capable of hypnotizing prey with its central eye. <strong>Type:</strong> Relict | <strong>Weakness:</strong> Relict Oil</p>
+
+            <div class="doc-sub3-title">Leshen</div>
+            <div class="monster-media">
+              <img src="assets/screenshots/monster-leshen-1.gif" alt="Leshen model" class="img-doc" style="margin:0;">
+              <img src="assets/screenshots/monster-leshen-2.gif" alt="Leshen in-game" class="img-doc" style="margin:0;">
+            </div>
+            <p>Ancient forest guardians that command animals and plant life, summoning crows and roots to overwhelm intruders. <strong>Type:</strong> Relict | <strong>Weakness:</strong> Relict Oil</p>
+
+            <div class="doc-sub3-title">Cockatrice</div>
+            <div class="monster-media">
+              <img src="assets/screenshots/monster-cockatrice-1.gif" alt="Cockatrice model" class="img-doc" style="margin:0;">
+              <img src="assets/screenshots/monster-cockatrice-2.gif" alt="Cockatrice in-game" class="img-doc" style="margin:0;">
+            </div>
+            <p>A winged draconid with the head of a rooster. Aggressive aerial predator attacking with beak, talons, and tail. <strong>Type:</strong> Draconid | <strong>Weakness:</strong> Draconid Oil</p>
           </div>
 
-          <!-- 4. Technical -->
+          <!-- 4. TECHNICAL -->
           <div class="doc-section" id="technical">
             <h2 class="doc-section-title">4. Technical Design</h2>
             <p>This section covers the key engineering and design decisions behind Witchercraft — the problems each system solves and the rationale behind the chosen approaches.</p>
@@ -532,30 +414,26 @@
             <div class="doc-sub" id="damage">
               <h3 class="doc-sub-title">4.1 Damage Model & Formula</h3>
             </div>
-            <p>Witchercraft replaces Minecraft's default damage calculation with a custom <code style="font-family:'Courier New',monospace;font-size:0.85em;color:var(--red-light);background:rgba(0,0,0,0.3);padding:1px 5px;border-radius:2px;">DamageCalculatorProcedure</code> that fires on every player attack. The system introduces flat additional damage, percentage increased damage, probabilistic critical hits, critical multiplier, and life steal.</p>
-
+            <p>Witchercraft replaces Minecraft's default damage calculation with a custom <code style="font-family:'Courier New',monospace;font-size:0.85em;color:var(--red-light);background:rgba(0,0,0,0.3);padding:1px 5px;border-radius:2px;">DamageCalculatorProcedure</code> that fires on every player attack.</p>
             <div class="doc-sub3-title">Variables</div>
             <table class="var-table">
               <thead><tr><th>Variable</th><th>Description</th></tr></thead>
               <tbody>
                 <tr><td>baseDamage</td><td>Raw damage value of the weapon or attack source</td></tr>
-                <tr><td>additionalDamage</td><td>Flat bonus damage added before any multipliers (from skill tree or gear)</td></tr>
-                <tr><td>increasedDamage</td><td>Percentage damage bonus, stored as an integer (e.g. 10 = +10%)</td></tr>
+                <tr><td>additionalDamage</td><td>Flat bonus damage added before any multipliers</td></tr>
+                <tr><td>increasedDamage</td><td>Percentage damage bonus, stored as integer (e.g. 10 = +10%)</td></tr>
                 <tr><td>critChance</td><td>Integer 1–100. Rolled against a random number each hit</td></tr>
-                <tr><td>critDamage</td><td>Crit damage multiplier stored as integer (e.g. 150 = ×1.50)</td></tr>
+                <tr><td>critDamage</td><td>Crit multiplier stored as integer (e.g. 150 = ×1.50)</td></tr>
                 <tr><td>lifeSteal</td><td>Percentage of final damage restored as health (e.g. 10 = 10%)</td></tr>
               </tbody>
             </table>
-
             <div class="doc-sub3-title">Normal Hit</div>
             <div class="formula-box">
               <span class="f-comment">// Normal hit</span><br>
               <span class="f-key">finalDamage</span> <span class="f-op">=</span> <span class="f-val">(baseDamage + additionalDamage)</span> <span class="f-op">×</span> <span class="f-val">(1 + increasedDamage × 0.01)</span><br>
               <span class="f-key">healthRestored</span> <span class="f-op">=</span> <span class="f-val">finalDamage × lifeSteal × 0.01</span>
             </div>
-
             <div class="doc-sub3-title">Critical Hit</div>
-            <p>A critical hit occurs when a random integer rolled between 1 and 100 is less than or equal to the player's <code style="font-family:'Courier New',monospace;font-size:0.85em;color:var(--red-light);">critChance</code>. On a crit, the damage is further multiplied by the <code style="font-family:'Courier New',monospace;font-size:0.85em;color:var(--red-light);">critDamage</code> multiplier:</p>
             <div class="formula-box">
               <span class="f-comment">// Crit check</span><br>
               <span class="f-key">critRoll</span> <span class="f-op">=</span> <span class="f-val">random(1, 100)</span><br><br>
@@ -565,115 +443,24 @@
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="f-op">×</span> <span class="f-val">(critDamage × 0.01)</span><br>
               &nbsp;&nbsp;<span class="f-key">healthRestored</span> <span class="f-op">=</span> <span class="f-val">finalDamage × lifeSteal × 0.01</span>
             </div>
-            <p>All percentage stats are stored as integers and multiplied by 0.01 at calculation time — avoiding floating point drift and keeping HUD values human-readable. The Ender Dragon is explicitly excluded from the critical hit path to prevent one-shot boss scenarios. Damage and life steal resolve via a one-tick server-side delay, preventing race conditions on the player's health value in multiplayer.</p>
-
-            <div class="doc-sub" id="toxicity-tech">
-              <h3 class="doc-sub-title">4.2 Toxicity System</h3>
-            </div>
-            <div class="img-placeholder"><div class="img-placeholder-icon">⬜</div><div class="img-placeholder-label">[ IMAGE: HUD showing Toxicity rising after consecutive potion use ]</div></div>
-            <p class="img-caption">Figure 4.1 — Toxicity level rising on the HUD after consecutive potion consumption.</p>
-            <ul class="doc-list">
-              <li>Every potion and decoction consumed increments current Toxicity by a fixed item-specific amount.</li>
-              <li>Decoctins carry a higher toxicity cost than standard potions, reflecting their greater power.</li>
-              <li>Toxicity decays passively over time between potion uses.</li>
-              <li>If current Toxicity exceeds Maximum Toxicity, health drains each tick until it falls back below the threshold.</li>
-              <li>White Honey immediately clears all active effects and resets Toxicity to zero.</li>
-              <li>Both values are displayed on the HUD at all times.</li>
-            </ul>
-            <p>The system exists to prevent the dominant strategy of stacking all potions before every encounter. Without it, optimal play is always maximum potion stacking, which trivialises the Alchemy system. Maximum Toxicity can be raised through Acquired Tolerance upgrades in the Alchemy Skill Tree, rewarding investment in the Alchemy path with greater flexibility.</p>
-
-            <div class="doc-sub" id="skilltree-tech">
-              <h3 class="doc-sub-title">4.3 Skill Tree Architecture & Perks</h3>
-            </div>
-            <p>Four independent tabs, each corresponding to a different combat philosophy. All skill state is stored as persistent player data and synchronised client-server via custom network packets. Perks are arranged in tiers — basic perks are accessible immediately, while higher-tier perks require prior investment in the same tab.</p>
-
-            <div class="doc-sub3-title">Combat Tab</div>
-            <div class="img-placeholder"><div class="img-placeholder-icon">⬜</div><div class="img-placeholder-label">[ IMAGE: Skill Tree — Combat tab ]</div></div>
-            <p class="img-caption">Figure 4.2 — Combat tab of the Skill Tree.</p>
-            <table class="perk-table">
-              <thead><tr><th>Perk</th><th>Effect</th></tr></thead>
-              <tbody>
-                <tr><td>Muscle Memory</td><td>+3 flat damage to all attacks</td></tr>
-                <tr><td>Strength Training</td><td>+10% increased damage</td></tr>
-                <tr><td>Precise Blows</td><td>+12% crit chance, +75% crit damage</td></tr>
-                <tr><td>Crippling Strikes</td><td>Applies Bleed effect on hit</td></tr>
-                <tr><td>Crushing Blows</td><td>+8% crit chance, +50% crit damage</td></tr>
-                <tr><td>Sunder Armor</td><td>+20% increased damage</td></tr>
-                <tr><td>Fleet Footed</td><td>Increased movement speed</td></tr>
-                <tr><td>Defence</td><td>+4 maximum HP</td></tr>
-                <tr><td>Deadly Precision</td><td>+1% instant kill chance</td></tr>
-                <tr><td>Cold Blood</td><td>If no enemy within 5 blocks, +5 damage</td></tr>
-                <tr><td>Anatomical Knowledge</td><td>If ranged weapon equipped, +10% crit rate</td></tr>
-                <tr><td>Crippling Shot</td><td>If ranged weapon equipped, +50% crit damage</td></tr>
-                <tr><td>Flood of Anger</td><td>If enemy within 5 blocks, +5 damage</td></tr>
-                <tr><td>Razor Focus</td><td>+10% dodge chance</td></tr>
-                <tr><td>Domination</td><td>Increases damage dealt to mobs</td></tr>
-                <tr><td>Undying</td><td>On death, restore HP to 50% once per 15 minutes</td></tr>
-              </tbody>
-            </table>
-
-            <div class="doc-sub3-title">Signs Tab</div>
-            <div class="img-placeholder"><div class="img-placeholder-icon">⬜</div><div class="img-placeholder-label">[ IMAGE: Skill Tree — Signs tab ]</div></div>
-            <p class="img-caption">Figure 4.3 — Signs tab. Each Sign has its own upgrade column.</p>
-            <table class="perk-table">
-              <thead><tr><th>Perk</th><th>Effect</th></tr></thead>
-              <tbody>
-                <tr><td>Aard Intensity</td><td>Increases Aard knockback force</td></tr>
-                <tr><td>Aard Sweep</td><td>Alternate form — strikes in radius around player</td></tr>
-                <tr><td>Shock Wave</td><td>Aard deals X direct damage</td></tr>
-                <tr><td>Igni Intensity</td><td>Increases Igni burning duration</td></tr>
-                <tr><td>Firestream</td><td>Increases Igni area of effect diameter</td></tr>
-                <tr><td>Pyromaniac</td><td>Igni deals additional burning damage per tick</td></tr>
-                <tr><td>Yrden Intensity</td><td>Increases Yrden slow potency</td></tr>
-                <tr><td>Magic Trap</td><td>Alternate Yrden form</td></tr>
-                <tr><td>Sustained Glyphs</td><td>Increases Yrden duration by 5 seconds</td></tr>
-                <tr><td>Quen Intensity</td><td>Increases Quen maximum absorption</td></tr>
-                <tr><td>Exploding Shield</td><td>When Quen ends, deal damage to nearby enemies</td></tr>
-                <tr><td>Quen Discharge</td><td>Deals absorbed damage back to the attacker</td></tr>
-                <tr><td>Axii Intensity</td><td>Increases Axii Sign duration</td></tr>
-                <tr><td>Delusion</td><td>Grants Hero of the Village effect</td></tr>
-                <tr><td>Domination</td><td>Increases damage dealt to affected mobs</td></tr>
-              </tbody>
-            </table>
-
-            <div class="doc-sub3-title">Alchemy Tab</div>
-            <div class="img-placeholder"><div class="img-placeholder-icon">⬜</div><div class="img-placeholder-label">[ IMAGE: Skill Tree — Alchemy tab ]</div></div>
-            <p class="img-caption">Figure 4.4 — Alchemy tab: Brewing, Oil Preparation, Bomb Creation, Mutation, Trial of Grasses columns.</p>
-            <table class="perk-table">
-              <thead><tr><th>Perk</th><th>Effect</th></tr></thead>
-              <tbody>
-                <tr><td>Refreshment</td><td>Each potion heals 10% of max HP on consumption</td></tr>
-                <tr><td>Delayed Recovery</td><td>If Toxicity above 80%, reactivate the Elixir effect</td></tr>
-                <tr><td>Side Effects</td><td>33% chance to activate a random secondary potion effect</td></tr>
-                <tr><td>Poisoned Blades</td><td>Oils give 5% chance to poison on hit</td></tr>
-                <tr><td>Protective Coating</td><td>Reduces damage taken from oil-targeted mob type</td></tr>
-                <tr><td>Hunter Instinct</td><td>Additional damage to oil-targeted mob type</td></tr>
-                <tr><td>Pyrotechnics</td><td>Bombs deal additional damage</td></tr>
-                <tr><td>Efficiency</td><td>Bombs have a chance to remain in inventory after use</td></tr>
-                <tr><td>Cluster Bombs</td><td>Bombs have increased area of effect</td></tr>
-                <tr><td>Acquired Tolerance 1–3</td><td>Each tier increases Maximum Toxicity</td></tr>
-                <tr><td>Endure Pain</td><td>Increases max HP by X when Toxicity is above threshold</td></tr>
-                <tr><td>Fast Metabolism</td><td>Toxicity drops X points faster per second</td></tr>
-                <tr><td>Killing Spree</td><td>Toxicity above 0 increases crit chance for X seconds (stackable)</td></tr>
-              </tbody>
-            </table>
+            <p>All percentage stats are stored as integers and multiplied by 0.01 at calculation time — avoiding floating point drift. The Ender Dragon is explicitly excluded from the crit path to prevent one-shot boss scenarios. Damage and life steal resolve via a one-tick server-side delay, preventing race conditions in multiplayer.</p>
 
             <div class="doc-sub" id="commands">
-              <h3 class="doc-sub-title">4.4 Developer & Debug Commands</h3>
+              <h3 class="doc-sub-title">4.2 Developer & Debug Commands</h3>
             </div>
-            <p>Custom commands registered for development and debugging. The Dev Log command is particularly valuable — it exposes the full damage calculation pipeline in real time via chat messages, making it possible to verify that stat changes from skill upgrades, gear, and potions apply correctly.</p>
+            <p>Custom commands for development and debugging. The Dev Log command exposes the full damage calculation pipeline in real time via chat, enabling live verification of stat changes from skill upgrades, gear, and potions.</p>
             <table class="cmd-table">
               <tbody>
-                <tr><td>/witchercraft stats</td><td>Prints all current player variables — Toxicity, crit chance, crit damage, life steal, etc. — to chat</td></tr>
-                <tr><td>/witchercraft levelfix</td><td>Corrects any desync in player level or XP values that can occur during testing</td></tr>
-                <tr><td>/witchercraft devlog</td><td>Toggles Dev Log status effect. With it active, every damage calculation prints its full breakdown to chat — base damage, combined damage, crit roll, crit result, and life steal</td></tr>
+                <tr><td>/witchercraft stats</td><td>Prints all current player variables — Toxicity, crit chance, crit damage, life steal, etc.</td></tr>
+                <tr><td>/witchercraft levelfix</td><td>Corrects any desync in player level or XP values during testing</td></tr>
+                <tr><td>/witchercraft devlog</td><td>Toggles Dev Log. With it active, every damage calculation prints its full breakdown to chat — base damage, combined damage, crit roll, crit result, and life steal</td></tr>
                 <tr><td>/witchercraft resetskills</td><td>Resets all Skill Tree investments, returning spent points for redistribution</td></tr>
                 <tr><td>/witchercraft settoxicity [value]</td><td>Directly sets current Toxicity to the specified value for testing threshold behaviours</td></tr>
               </tbody>
             </table>
 
             <div class="doc-sub" id="architecture">
-              <h3 class="doc-sub-title">4.5 Package Architecture</h3>
+              <h3 class="doc-sub-title">4.3 Package Architecture</h3>
             </div>
             <table class="var-table">
               <thead><tr><th>Package</th><th>Contents</th></tr></thead>
@@ -694,18 +481,18 @@
             </table>
           </div>
 
-          <!-- 5. Planned -->
+          <!-- 5. PLANNED -->
           <div class="doc-section" id="planned">
             <h2 class="doc-section-title">5. Planned Features</h2>
             <ul class="doc-list">
-              <li><strong style="color:var(--silver);">Monster Entity Implementation</strong> — Full AI behavior, attack patterns, loot tables, and spawning rules for all ten planned monsters.</li>
+              <li><strong style="color:var(--silver);">Monster Entity Implementation</strong> — Full AI behavior, attack patterns, loot tables, and spawning rules for all planned monsters.</li>
               <li><strong style="color:var(--silver);">Contract System</strong> — Witcher Contract notice board quests tying the Bestiary, monsters, and economy into a cohesive loop.</li>
               <li><strong style="color:var(--silver);">Expanded Crafting & Economy</strong> — Alchemy ingredient sourcing through monster drops and world exploration.</li>
               <li><strong style="color:var(--silver);">World Generation</strong> — Custom structures: abandoned villages, monster nests, notice boards, herbalist huts.</li>
             </ul>
           </div>
 
-          <!-- 6. Installation -->
+          <!-- 6. INSTALLATION -->
           <div class="doc-section" id="installation">
             <h2 class="doc-section-title">6. Installation</h2>
             <ul class="doc-list">
@@ -716,7 +503,7 @@
             </ul>
           </div>
 
-          <!-- 7. Technologies -->
+          <!-- 7. TECHNOLOGIES -->
           <div class="doc-section" id="technologies">
             <h2 class="doc-section-title">7. Technologies Used</h2>
             <table class="var-table">
@@ -736,7 +523,7 @@
 
         </div><!-- end doc-body -->
 
-        <!-- ── Table of contents ─────────────────────────────── -->
+        <!-- TOC -->
         <nav class="toc" aria-label="On this page">
           <div class="toc-title">On this page</div>
           <ul class="toc-list">
@@ -752,8 +539,6 @@
             <li><a href="#planned-monsters" class="sub">In Development</a></li>
             <li><a href="#technical">4. Technical</a></li>
             <li><a href="#damage" class="sub">Damage Formula</a></li>
-            <li><a href="#toxicity-tech" class="sub">Toxicity</a></li>
-            <li><a href="#skilltree-tech" class="sub">Skill Tree</a></li>
             <li><a href="#commands" class="sub">Commands</a></li>
             <li><a href="#architecture" class="sub">Architecture</a></li>
             <li><a href="#planned">5. Planned</a></li>
@@ -762,7 +547,7 @@
           </ul>
         </nav>
 
-      </div><!-- end doc-layout -->
+      </div>
     </main>
   </div>
   <footer id="footer" class="site-footer"></footer>
@@ -770,7 +555,6 @@
 
 <script src="shared-nav.js"></script>
 <script>
-  // ── Reading progress bar ──────────────────────────────────────
   const progress = document.getElementById('progress');
   window.addEventListener('scroll', () => {
     const scrollTop = window.scrollY;
@@ -778,10 +562,8 @@
     progress.style.width = (scrollTop / docH * 100) + '%';
   });
 
-  // ── TOC active link on scroll ─────────────────────────────────
   const sections = document.querySelectorAll('[id]');
   const tocLinks = document.querySelectorAll('.toc-list a');
-
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -791,7 +573,6 @@
       }
     });
   }, { rootMargin: '-10% 0px -80% 0px' });
-
   sections.forEach(s => observer.observe(s));
 </script>
 </body>

@@ -5,6 +5,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WitcherCraft Wiki</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .social-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.2rem 0 0.8rem;
+      border-top: 1px solid var(--border-red);
+      margin-top: 2rem;
+    }
+    .social-bar a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      color: var(--silver-dim);
+      text-decoration: none;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .social-bar a:hover { color: var(--silver); }
+    .social-bar-icon { font-size: 1.2rem; }
+    .other-mods-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .other-mod-card {
+      background: rgba(14,14,14,0.95);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--red);
+      border-radius: 2px;
+      padding: 1.2rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: block;
+    }
+    .other-mod-card:hover {
+      border-top-color: var(--silver);
+      background: rgba(158,26,26,0.06);
+    }
+    .other-mod-title {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      color: var(--silver);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.3rem;
+    }
+    .other-mod-downloads {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      color: var(--red-light);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.04em;
+    }
+    .other-mod-desc {
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      color: var(--text-faint);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .wip-notice {
+      background: rgba(158,26,26,0.06);
+      border: 1px solid var(--border-red);
+      border-left: 3px solid var(--red);
+      padding: 0.6rem 1rem;
+      border-radius: 2px;
+      margin: 1rem 0;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      color: var(--text-faint);
+      font-style: italic;
+    }
+    .legal-note {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      color: var(--text-faint);
+      line-height: 1.6;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+  </style>
 </head>
 <body>
 <div class="site-wrapper">
@@ -19,9 +107,14 @@
         <p class="home-hero-sub">A faithful recreation of The Witcher universe within Minecraft. Signs, Alchemy, Monsters and more.</p>
       </div>
 
+      <div class="wip-notice">
+        ⚒ WitcherCraft is currently undergoing a full rework. Some content on this wiki reflects the mod in active development. All visuals are works in progress and not indicative of the final product.
+      </div>
+
       <div class="section-head">What is WitcherCraft?</div>
-      <p>WitcherCraft is a NeoForge Minecraft mod that brings the world of The Witcher 3: Wild Hunt into the Minecraft engine. Cast Signs, brew potions, apply oils, hunt monsters from the Witcher bestiary, and progress through a deep RPG skill tree.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+      <p>WitcherCraft is a NeoForge Minecraft mod that brings the world of The Witcher 3: Wild Hunt into the Minecraft engine. If you ever wanted to feel like Geralt while playing Minecraft — hunting monsters, brewing potions, casting Signs and donning Witcher School armor — this mod is for you.</p>
+      <p>The mod recreates the core RPG systems of The Witcher 3 from the ground up: a full Alchemy system with Potions, Decoctins, Oils and Bombs governed by a Toxicity mechanic, all five Witcher Signs as active abilities with custom particle effects, six Witcher School armor sets with unique School Effects, a multi-tab Skill Tree with over thirty perks, and a custom damage model replacing Minecraft's default combat. A Bestiary, Glossary, Meditation system and custom HUD round out the experience.</p>
+      <p>The mod is currently available on CurseForge and Modrinth and is actively being developed. The full rework brings significant improvements to all existing systems alongside new content.</p>
 
       <div class="section-head">Explore the Wiki</div>
       <div class="home-feature-grid">
@@ -59,11 +152,46 @@
 
       <hr class="divider" id="other-mods">
       <div class="section-head">Other Mods</div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. More mods from Red Bolt Media coming soon.</p>
+      <p>Other mods from Red Bolt Media, available on CurseForge and Modrinth.</p>
+      <div class="other-mods-grid">
+        <a class="other-mod-card" href="[DMC_CURSEFORGE_URL]" target="_blank">
+          <div class="other-mod-title">DMC Weapons Mod</div>
+          <div class="other-mod-downloads">130,000+ downloads</div>
+          <p class="other-mod-desc">Devil May Cry weapons brought to Minecraft. Custom mechanics, sounds and effects for each weapon.</p>
+        </a>
+        <a class="other-mod-card" href="[CYBERCRAFT_CURSEFORGE_URL]" target="_blank">
+          <div class="other-mod-title">CyberCraft</div>
+          <div class="other-mod-downloads">In development</div>
+          <p class="other-mod-desc">A Cyberpunk 2077-inspired mod adding new weapons, mechanics and items to Minecraft. Early development stage.</p>
+        </a>
+      </div>
 
       <hr class="divider" id="contact">
       <div class="section-head">Contact</div>
-      <p>For bug reports, suggestions, or general enquiries, join the Discord server or open an issue on CurseForge.</p>
+      <p>For bug reports, suggestions, or general enquiries, join the Discord server or open an issue on CurseForge. Discord is the fastest way to get a response.</p>
+
+      <div class="social-bar">
+        <a href="[DISCORD_URL]" target="_blank">
+          <span class="social-bar-icon">💬</span>
+          Discord
+        </a>
+        <a href="[CURSEFORGE_WITCHERCRAFT_URL]" target="_blank">
+          <span class="social-bar-icon">🔥</span>
+          CurseForge
+        </a>
+        <a href="[MODRINTH_WITCHERCRAFT_URL]" target="_blank">
+          <span class="social-bar-icon">📦</span>
+          Modrinth
+        </a>
+        <a href="https://github.com/Ciochinio" target="_blank">
+          <span class="social-bar-icon">🐙</span>
+          GitHub
+        </a>
+      </div>
+
+      <div class="legal-note">
+        WitcherCraft is an independent fan modification for Minecraft, created with permission from CD Projekt Red under their fan content guidelines. This project is fully non-commercial. CD Projekt Red is not an official partner or co-creator of this project. The Witcher® is a registered trademark of CD Projekt Red S.A. All visual assets currently present in this mod are temporary placeholders — final assets will be original works created in a Minecraft pixel art style.
+      </div>
 
     </main>
   </div>
