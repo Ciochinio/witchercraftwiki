@@ -25,7 +25,7 @@
   document.getElementById('sidebar').innerHTML = `
     <div class="sidebar-section">Gameplay</div>
     <nav>
-      <a href="${root}index.html" class="${isActive('index.html')}">🏠 Home</a>
+      <a href="${root}index.html" class="${isActive('index.html')}"> Home</a>
       <a href="${root}getting-started.html" class="${isActive('getting-started.html')}">⚔ Getting Started</a>
       <a href="${root}signs.html" class="${isActive('signs.html')}">✦ Signs</a>
       <a href="${root}alchemy.html" class="${isActive('alchemy.html')}">⚗ Alchemy</a>
@@ -43,15 +43,15 @@
     </nav>
     <div class="sidebar-section">Development</div>
     <nav>
-      <a href="${root}roadmap.html" class="${isActive('roadmap.html')}">📋 Roadmap</a>
-      <a href="${root}changelog.html" class="${isActive('changelog.html')}">📝 Changelog</a>
+      <a href="${root}roadmap.html" class="${isActive('roadmap.html')}"> Roadmap</a>
+      <a href="${root}changelog.html" class="${isActive('changelog.html')}"> Changelog</a>
     </nav>
     <div class="sidebar-section">Links</div>
     <nav>
-      <a href="https://discord.gg/xReJfktHS2" target="_blank">💬 Discord</a>
-      <a href="https://www.curseforge.com/minecraft/mc-mods/witchercraft" target="_blank">🔥 CurseForge</a>
-      <a href="https://modrinth.com/mod/witchercraft" target="_blank">📦 Modrinth</a>
-      <a href="https://github.com/Ciochinio" target="_blank">🐙 GitHub</a>
+      <a href="https://discord.gg/xReJfktHS2" target="_blank"> Discord</a>
+      <a href="https://www.curseforge.com/minecraft/mc-mods/witchercraft" target="_blank"> CurseForge</a>
+      <a href="https://modrinth.com/mod/witchercraft" target="_blank"> Modrinth</a>
+      <a href="https://github.com/Ciochinio" target="_blank"> GitHub</a>
     </nav>
   `;
 
