@@ -26,15 +26,15 @@
     <div class="sidebar-section">Gameplay</div>
     <nav>
       <a href="${root}index.html" class="${isActive('index.html')}"> Home</a>
-      <a href="${root}getting-started.html" class="${isActive('getting-started.html')}">⚔ Getting Started</a>
-      <a href="${root}signs.html" class="${isActive('signs.html')}">✦ Signs</a>
-      <a href="${root}alchemy.html" class="${isActive('alchemy.html')}">⚗ Alchemy</a>
-      <a href="${root}witcher-gear.html" class="${isActive('witcher-gear.html')}">🛡 Witcher Gear</a>
-      <a href="${root}crafting.html" class="${isActive('crafting.html')}">⚒ Crafting</a>
+      <a href="${root}getting-started.html" class="${isActive('getting-started.html')}">Getting Started</a>
+      <a href="${root}signs.html" class="${isActive('signs.html')}">Signs</a>
+      <a href="${root}alchemy.html" class="${isActive('alchemy.html')}">Alchemy</a>
+      <a href="${root}witcher-gear.html" class="${isActive('witcher-gear.html')}">Witcher Gear</a>
+      <a href="${root}crafting.html" class="${isActive('crafting.html')}">Crafting</a>
     </nav>
     <div class="sidebar-section">Bestiary</div>
     <nav>
-      <a href="${root}monsters.html" class="${isActive('monsters.html') || (inMonsters ? 'active' : '')}">☠ Monsters</a>
+      <a href="${root}monsters.html" class="${isActive('monsters.html') || (inMonsters ? 'active' : '')}">Monsters</a>
       <a href="${root}monsters.html#necrophages" class="sub">· Necrophages</a>
       <a href="${root}monsters.html#vampires" class="sub">· Vampires</a>
       <a href="${root}monsters.html#specters" class="sub">· Specters</a>
