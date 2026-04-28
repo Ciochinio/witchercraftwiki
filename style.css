@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap');
 
 :root {
-  --bg-image: url('../assets/background.jpg'); /* swap your background JPEG here */
+  --bg-image: url('./assets/background.jpg'); /* swap to your own background image when ready */
   --red:        #9e1a1a;
   --red-light:  #c0392b;
   --red-glow:   #c0392b33;
@@ -14,8 +14,8 @@
   --silver-dim: #888;
   --silver-faint: #444;
   --black:      #0a0a0a;
-  --surface:    rgba(10,10,10,0.88);
-  --panel:      rgba(16,16,16,0.92);
+  --surface:    rgba(10,10,10,0.68);
+  --panel:      rgba(16,16,16,0.78);
   --border:     rgba(192,192,192,0.1);
   --border-red: rgba(158,26,26,0.4);
   --text:       #c0c0c0;
@@ -31,7 +31,9 @@
 html, body {
   min-height: 100vh;
   background-color: #0a0a0a;
-  background-image: var(--bg-image);
+  background-image:
+    linear-gradient(rgba(8, 8, 8, 0.5), rgba(8, 8, 8, 0.65)),
+    var(--bg-image);
   background-size: cover;
   background-position: center top;
   background-attachment: fixed;
