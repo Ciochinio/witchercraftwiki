@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WitcherCraft Wiki</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
   <style>
     .social-bar {
       display: flex;
@@ -92,6 +93,15 @@
       padding-top: 1rem;
       border-top: 1px solid var(--border);
     }
+
+    .logo{
+      width: 50px;
+      height: 50px;
+      color: white;
+    }
+    .flip{
+      filter: invert(1);
+    }
   </style>
 </head>
 <body>
@@ -172,19 +182,19 @@
 
       <div class="social-bar">
         <a href="[DISCORD_URL]" target="_blank">
-          <span class="social-bar-icon">💬</span>
+          <span class="social-bar-icon"><img src="assets/logos/discord-icon.svg" alt="discord" class="logo"></span>
           Discord
         </a>
         <a href="[CURSEFORGE_WITCHERCRAFT_URL]" target="_blank">
-          <span class="social-bar-icon">🔥</span>
+          <span class="social-bar-icon"><img src="assets/logos/curseforge.svg" alt="CurseForge" class="logo flip"></span>
           CurseForge
         </a>
         <a href="[MODRINTH_WITCHERCRAFT_URL]" target="_blank">
-          <span class="social-bar-icon">📦</span>
+          <span class="social-bar-icon"><img src="assets/logos/modrinth.svg" alt="Modrinth" class="logo flip"></span>
           Modrinth
         </a>
         <a href="https://github.com/Ciochinio" target="_blank">
-          <span class="social-bar-icon">🐙</span>
+          <span class="social-bar-icon"><img src="assets/logos/github-icon.svg" alt="GitHub" class="logo flip"></span>
           GitHub
         </a>
       </div>

@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;600&display=swap');
 
 :root {
-  --bg-image: url('./assets/background.jpg'); /* swap to your own background image when ready */
+  --bg-image: url('./assets/background.jpg'); 
   --red:        #9e1a1a;
   --red-light:  #c0392b;
   --red-glow:   #c0392b33;
